@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import logo from '../../assets/img/';
+import logo from "../../assets/img/logo.webp";
 
 
 function Header() {
