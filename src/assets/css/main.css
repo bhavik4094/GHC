@@ -6,12 +6,11 @@
     padding: 15px 0;
     transition: all 0.3s ease-in-out;
     z-index: 1000;
-    border-bottom: 1px solid #8AC600; /* light green border */
+    border-bottom: 1px solid #8AC600;
   }
   
   .main-header.scrolled {
     padding: 5px 0;
-    background-color: black; /* adjust if needed */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -19,6 +18,43 @@
     color: white;
     font-weight: 600;
     margin-right: 15px;
+    cursor: pointer;
+  }
+  
+  .nav-item.dropdown {
+    position: relative;
+  }
+  
+  .nav-item.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black;
+    border: 1px solid #8AC600;
+    min-width: 180px;
+    z-index: 1001;
+    padding: 0;
+  }
+  
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu li {
+    list-style: none;
+  }
+  
+  .dropdown-item {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #8AC600;
+    color: black;
   }
   
   .btn-success {
@@ -34,7 +70,7 @@
   }
   
   .navbar-brand img {
-    height: 50px;
+    height: 100%;
     transition: 0.3s;
   }
   
@@ -43,6 +79,150 @@
   }
   
   body {
-    padding-top: 80px; /* To ensure content doesn't hide under fixed header */
+    padding-top: 80px;
+  }
+  
+  .menu-name {
+    font-size: 25px;
+  }
+  
+  /* -------------------- MOBILE STYLES -------------------- */
+  @media (max-width: 991.98px) {
+    .menu-toggle {
+      font-size: 28px;
+      background: none;
+      border: none;
+      color: white;
+      z-index: 2;
+    }
+  
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: white;
+      z-index: 1100;
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(6px);
+      visibility: hidden;
+    }
+  
+    .mobile-menu-overlay.open {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+      visibility: visible;
+    }
+  
+    .mobile-nav {
+      list-style: none;
+      padding: 10px 0px 0px 0px;
+    }
+  
+    .mobile-nav li {
+      margin: 0rem 0;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 12px 10px;
+    }
+  
+    .mobile-nav a {
+      text-decoration: none;
+      color: black;
+    }
+  
+    .mobile-nav li:hover {
+      background-color: black;
+      color: white;
+    }
+  
+    .mobile-nav li:hover a {
+      color: white;
+    }
+  
+    .mobile-nav li.has-submenu:hover {
+      background-color: transparent;
+      color: black;
+    }
+  
+    ul.submenu li {
+      padding: 12px 0px 12px 30px;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  
+    ul.submenu li:hover {
+      background-color: black;
+      color: white !important;
+    }
+  
+    .mobile-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 40px 10px;
+      background-color: black;
+    }
+  
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+    }
+  
+    .mobile-logo {
+      height: 84px;
+      width: auto;
+      margin-left: -16px;
+    }
+  
+    .close-btn {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      color: black;
+      flex-shrink: 0;
+    }
+  
+    .mobile-nav li::after {
+      display: none !important;
+    }
+  
+    .mobile-nav .submenu-toggle {
+      display: none !important;
+    }
+  
+    .submenu-icon {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-left: 1rem;
+    }
+  
+    .submenu {
+      list-style: none;
+      padding: 0px;
+    }
+  
+    .submenu li {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+  }
+  
+  /* Hide mobile overlay on desktop */
+  @media (min-width: 992px) {
+    .mobile-menu-overlay {
+      display: none;
+    }
   }
   
