@@ -1,3 +1,44 @@
-body{
-    background-color: rgb(0, 211, 211);
-}
+.main-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: black;
+    padding: 15px 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    border-bottom: 1px solid #8AC600; /* light green border */
+  }
+  
+  .main-header.scrolled {
+    padding: 5px 0;
+    background-color: black; /* adjust if needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-nav .nav-link {
+    color: white;
+    font-weight: 600;
+    margin-right: 15px;
+  }
+  
+  .btn-success {
+    background-color: #8AC600;
+    border: none;
+    font-weight: bold;
+  }
+  
+  .btn-outline-success {
+    color: #8AC600;
+    border-color: #8AC600;
+    font-weight: bold;
+  }
+  
+  .navbar-brand img {
+    height: 50px;
+    transition: 0.3s;
+  }
+  
+  .main-header.scrolled .navbar-brand img {
+    height: 40px;
+  }
+  
