@@ -1,8 +1,13 @@
 import React from 'react'
+import FooterFirst from './FooterFirst'
+import FooterSecond from './FooterSecond'
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <div>
+      <FooterFirst />
+      <FooterSecond />
+    </div>
   )
 }
 
