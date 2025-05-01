@@ -4,8 +4,7 @@ import backgroundImage from '../../assets/img/footer-1-img.webp';
 function FooterFirst() {
     return (
         <div>
-
-            <div className="py-1 bg-secondary"></div>
+            <div className="py-5 bg-secondary"></div>
             <section
                 className="cta-section d-flex align-items-center justify-content-center text-center"
                 style={{ backgroundImage: `url(${backgroundImage})` }}
