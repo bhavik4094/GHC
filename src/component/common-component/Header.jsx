@@ -19,7 +19,7 @@ function Header() {
 
   return (
     <header className={`main-header ${scrolled ? 'scrolled' : ''}`}>
-      <nav className="navbar navbar-expand-lg navbar-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark p-0">
         <div className="container-fluid d-flex justify-content-between align-items-center">
           <Link className="navbar-brand" to="/">
             <img src={logo} alt="Logo" />
@@ -36,11 +36,27 @@ function Header() {
 
               <li className="nav-item dropdown">
                 <span className="nav-link dropdown-toggle">SERVICES</span>
-                <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" to="/services/driveways">Driveways</Link></li>
-                  <li><Link className="dropdown-item" to="/services/patios">Patios</Link></li>
-                </ul>
+                <div className="dropdown-menu mega-menu">
+                  <div className="mega-menu-column">
+                    <Link className="dropdown-item" to="/services/driveway-repair">Driveway Repair & Replacements</Link>
+                    <Link className="dropdown-item" to="/services/patio-design">Patio Design & Construction</Link>
+                    <Link className="dropdown-item" to="/services/slab-installation">Concrete Slab Installation</Link>
+                    <Link className="dropdown-item" to="/services/mitered-ends">Mitered Ends</Link>
+                    <Link className="dropdown-item" to="/services/sunken-room">Fill-in Sunken Living Room</Link>
+                    <Link className="dropdown-item" to="/services/parking-lot-repairs">Parking Lot Repairs and Curbing</Link>
+                    <Link className="dropdown-item" to="/services/bollards">Bollards Installation</Link>
+                  </div>
+                  <div className="mega-menu-column">
+                    <Link className="dropdown-item" to="/services/concrete-repairs">Concrete Repairs</Link>
+                    <Link className="dropdown-item" to="/services/sidewalks">Sidewalks and Walkway Construction</Link>
+                    <Link className="dropdown-item" to="/services/retaining-wall">Retaining Wall Construction</Link>
+                    <Link className="dropdown-item" to="/services/floating-ponds">Modern Decorative Floating Ponds</Link>
+                    <Link className="dropdown-item" to="/services/plumbing-trench">Plumbing Trench Concrete Pour Back</Link>
+                    <Link className="dropdown-item" to="/services/culvert-pipe">Culvert Pipe Installation</Link>
+                  </div>
+                </div>
               </li>
+
 
               <li className="nav-item dropdown">
                 <span className="nav-link dropdown-toggle">PHOTOS</span>
@@ -81,8 +97,13 @@ function Header() {
               </li>
               {servicesOpen && (
                 <ul className="submenu">
-                  <li><Link to="/services/driveways" onClick={() => setMenuOpen(false)}>Driveways</Link></li>
-                  <li><Link to="/services/patios" onClick={() => setMenuOpen(false)}>Patios</Link></li>
+                  <li><Link to="/services/driveways" onClick={() => setMenuOpen(false)}>Driveway Repair & Replacements</Link></li>
+                  <li><Link to="/services/patios" onClick={() => setMenuOpen(false)}>Sidewalks and Walkway Construction</Link></li>
+                  <li><Link to="/services/driveways" onClick={() => setMenuOpen(false)}>Concrete Slab Installation</Link></li>
+                  <li><Link to="/services/patios" onClick={() => setMenuOpen(false)}>Mitered Ends</Link></li>
+                  <li><Link to="/services/driveways" onClick={() => setMenuOpen(false)}>Fill-in Sunken Living Room</Link></li>
+                  <li><Link to="/services/patios" onClick={() => setMenuOpen(false)}>Parking Lot Repairs and Curbing</Link></li>  <li><Link to="/services/driveways" onClick={() => setMenuOpen(false)}>Driveways</Link></li>
+                  <li><Link to="/services/patios" onClick={() => setMenuOpen(false)}>Bollards Installation</Link></li>
                 </ul>
               )}
 
