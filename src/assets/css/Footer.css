@@ -9,12 +9,14 @@
     --color-green-light: #8AC600;
 }
 
+body {
+    overflow-X: hidden;
+}
+
 h2 {
     line-height: 48px !important;
 }
 
-
-/* * */
 
 
 /* ============================
@@ -74,9 +76,12 @@ h2 {
     color: var(--color-white);
 }
 
+
 /* ============================
-     CTA Section Styles
-  ============================ */
+First Footer CSS
+============================ */
+
+/* CTA Section Styles */
 .cta-section {
     background-position: center;
     background-size: cover;
@@ -99,4 +104,43 @@ h2 {
 .cta-content {
     z-index: 2;
     height: 100% !important;
+}
+
+/* CSA OUTER CONTAINER */
+.cta-outer-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.Page-tearing-div {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow-x: hidden !important;
+    object-fit: contain;
+}
+
+
+/* ============================
+Second Footer CSS
+============================ */
+.second-footer-continer {
+    padding: 64px 32px 40px;
+}
+
+.secondfooter-links {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    line-height: 24px !important;
+
+}
+
+.secondfooter-links:hover {
+    color: rgba(209, 213, 219, 1);
+}
+
+.list-unstyled-div {
+    max-width: 176px !important;
+    width: 100%;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import backgroundImage from '../../assets/img/footer-1-img.webp';
+import pagetear from '../../assets/img/footer-pagetear-img.webp';
 
 function FooterFirst() {
     return (
@@ -9,20 +10,29 @@ function FooterFirst() {
                 className="cta-section d-flex align-items-center justify-content-center text-center"
                 style={{ backgroundImage: `url(${backgroundImage})` }}
             >
-                <div className="cta-overlay"></div>
-                <div className="cta-content container position-relative text-white px-4">
-                    <h2 className="fw-bold display-5 mb-3">READY TO GET STARTED?</h2>
-                    <h2 className="fw-bold display-5 mb-5">BOOK AN APPOINTMENT TODAY.</h2>
-                    <div className="d-flex flex-column flex-md-row justify-content-center gap-3 mt-3">
-                        <button className="btn btn-green flex-grow-1 flex-md-grow-0">
-                            GET A FREE QUOTE
-                        </button>
-                        <button className="btn btn-outline-green flex-grow-1 flex-md-grow-0">
-                            CALL US
-                        </button>
+                <div className='cta-outer-container'>
+                    <div className="cta-overlay"></div>
+                    <div className="cta-content container position-relative text-white px-4">
+                        <h2 className="fw-bold display-5 mb-3">READY TO GET STARTED?</h2>
+                        <h2 className="fw-bold display-5 mb-5">BOOK AN APPOINTMENT TODAY.</h2>
+                        <div className="d-flex flex-column flex-md-row justify-content-center gap-3 mt-3">
+                            <button className="btn btn-green flex-grow-1 flex-md-grow-0">
+                                GET A FREE QUOTE
+                            </button>
+                            <button className="btn btn-outline-green flex-grow-1 flex-md-grow-0">
+                                CALL US
+                            </button>
+                        </div>
+
                     </div>
+                    <div className='Page-tearing-div'>
+                        <img src={pagetear} alt="Page-tearing-img" />
+                    </div>
+
                 </div>
             </section>
+
+
         </div >
     )
 }
