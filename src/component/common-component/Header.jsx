@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // ✅ Step 1: Import Link
 import logo from "../../assets/img/logo.webp";
-
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,9 +23,9 @@ function Header() {
     <header className={`main-header ${scrolled ? 'scrolled' : ''}`}>
       <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             <img src={logo} alt="Logo" height="50" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -37,24 +37,24 @@ function Header() {
 
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item"><a className="nav-link" href="/">HOME</a></li>
+              <li className="nav-item"><Link className="nav-link" to="/">HOME</Link></li>
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/" data-bs-toggle="dropdown">SERVICES</a>
+                <Link className="nav-link dropdown-toggle" to="/" data-bs-toggle="dropdown">SERVICES</Link>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="/">Service 1</a></li>
-                  <li><a className="dropdown-item" href="/">Service 2</a></li>
+                  <li><Link className="dropdown-item" to="/service1">Service 1</Link></li>
+                  <li><Link className="dropdown-item" to="/service2">Service 2</Link></li>
                 </ul>
               </li>
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/" data-bs-toggle="dropdown">PHOTOS</a>
+                <Link className="nav-link dropdown-toggle" to="/" data-bs-toggle="dropdown">PHOTOS</Link>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="/">Gallery 1</a></li>
+                  <li><Link className="dropdown-item" to="/gallery1">Gallery 1</Link></li>
                 </ul>
               </li>
-              <li className="nav-item"><a className="nav-link" href="/">REVIEWS</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">TEAM</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">BLOG</a></li>
-              <li className="nav-item"><a className="nav-link" href="/">VIDEOS</a></li>
+              <li className="nav-item"><Link className="nav-link" to="/reviews">REVIEWS</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/team">TEAM</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/blog">BLOG</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/videos">VIDEOS</Link></li>
             </ul>
             <div className="d-flex">
               <button className="btn btn-success me-2">SEND US A TEXT</button>
@@ -64,8 +64,7 @@ function Header() {
         </div>
       </nav>
     </header>
-
-  )
+  );
 }
 
-export default Header
+export default Header;
