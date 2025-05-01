@@ -30,11 +30,12 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: black;
-  border: 1px solid #8AC600;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #ffffff;
+  color: rgb(0, 0, 0);
   min-width: 180px;
   z-index: 1001;
-  padding: 0;
+  padding: 10px;
 }
 
 .nav-item.dropdown:hover .dropdown-menu {
@@ -48,13 +49,14 @@
 .dropdown-item {
   display: block;
   padding: 10px 20px;
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
 .dropdown-item:hover {
-  background-color: #8AC600;
-  color: black;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
 }
 
 .btn-success {
@@ -69,13 +71,23 @@
   font-weight: bold;
 }
 
+.navbar-brand {
+  transition: 0.3s all ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
 .navbar-brand img {
   height: 100%;
-  transition: 0.3s;
+  padding-left: 30px;
+  max-height: 300px;
+  transition: height 0.3s ease-in-out;
+  
 }
 
 .main-header.scrolled .navbar-brand img {
-  height: 80px;
+  height: 100px;
+  padding-left: 0px;
 }
 
 body {
@@ -83,7 +95,8 @@ body {
 }
 
 .menu-name {
-  font-size: 25px;
+  font-size: 23px;
+  font-weight: 100;
 }
 
 /* -------------------- MOBILE STYLES -------------------- */
@@ -95,7 +108,19 @@ body {
     color: white;
     z-index: 2;
   }
-
+  .main-header.scrolled .navbar-brand img {
+    height: 80px;
+    padding-left: 0px;
+  }
+  .navbar-brand img {
+    height: 80px;
+    padding-left: 0px;
+    
+   
+}
+.main-header{
+  padding: 0px !important;
+}
   .mobile-menu-overlay {
     position: fixed;
     top: 0;
@@ -224,4 +249,46 @@ body {
   .mobile-menu-overlay {
     display: none;
   }
+}
+
+/* Mega menu base */
+.dropdown-menu.mega-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgb(255, 255, 255)!important;
+  border: 1px solid #ffffff;
+  color: rgb(0, 0, 0)!important;
+  width: 600px;
+  padding: 20px 30px;
+  z-index: 1001;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Show mega menu on hover */
+.nav-item.dropdown:hover .mega-menu {
+  display: flex;
+}
+
+/* Columns inside mega menu */
+.mega-menu-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Item styles */
+.mega-menu .dropdown-item {
+  display: block;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.mega-menu .dropdown-item:hover {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
 }
