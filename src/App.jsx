@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom'
-import Footer from './component/common-component/Footer'
+import Footer from './component/common-component/footer/Footer'
 import Header from './component/common-component/Header'
 
 function App() {
- 
+
 
   return (
 
@@ -13,7 +13,7 @@ function App() {
       <Footer />
     </>
 
-  ) 
+  )
 }
 
 export default App
