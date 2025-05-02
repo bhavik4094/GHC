@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import logo from "../../assets/img/logo.webp";
+import logo from "../../../assets/img/logo.webp";
 import DesktopMenu from './DesktopNavbar';
 import MobileMenu from './MobileMenu';
 
