@@ -146,6 +146,49 @@ body {
     pointer-events: auto;
     visibility: visible;
   }
+  .mobile-nav {
+    max-height: 80vh; /* Limit to 80% of screen height */
+    overflow-y: auto; /* Enable vertical scroll */
+    padding-right: 10px; /* Optional: avoid scroll overlap */
+  }
+  
+  .mobile-nav::-webkit-scrollbar {
+    width: 6px;
+  }
+  .mobile-menu-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full screen height */
+    background-color: white; /* or your theme color */
+    position: fixed; /* optional: for full-screen mobile menu */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999; /* make sure it sits above other content */
+  }
+  
+  .mobile-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+  
+  .mobile-buttons {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    background-color: #fff; /* ensure it's visible above nav */
+    position: sticky;
+    bottom: 0;
+  }
+  
+  .mobile-nav::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+  .mobile-nav {
+    scroll-behavior: smooth;
+  }
+    
 
   .mobile-nav {
     list-style: none;
