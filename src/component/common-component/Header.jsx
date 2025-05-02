@@ -1,49 +1,62 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../assets/img/logo.webp";
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [photosOpen, setPhotosOpen] = useState(false);
-  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
-  const [desktopPhotosOpen, setDesktopPhotosOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const servicesToggleRef = useRef(null);
-  const servicesMenuRef = useRef(null);
-  const photosToggleRef = useRef(null);
-  const photosMenuRef = useRef(null);
+  // Refs to detect clicks outside
+  const servicesRef = useRef(null);
+  const photosRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
-
+  // Handle scroll behavior for header
   const handleScroll = () => {
     setScrolled(window.scrollY > 50);
   };
 
+  // Toggle the "Services" dropdown
+  const toggleServices = () => {
+    setServicesOpen(!servicesOpen);
+    setPhotosOpen(false); // Close "Photos" dropdown if it's open
+  };
+
+  // Toggle the "Photos" dropdown
+  const togglePhotos = () => {
+    setPhotosOpen(!photosOpen);
+    setServicesOpen(false); // Close "Services" dropdown if it's open
+  };
+
+  // Handle click outside the dropdowns to close them
+  const handleClickOutside = (e) => {
+    if (
+      servicesRef.current && !servicesRef.current.contains(e.target) &&
+      photosRef.current && !photosRef.current.contains(e.target) &&
+      mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)
+    ) {
+      setServicesOpen(false);
+      setPhotosOpen(false);
+      setMenuOpen(false); // Close the mobile menu when clicking outside
+    }
+  };
+
+  // Add event listener for outside clicks when the component mounts
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
   }, []);
 
+  // Handle scrolling behavior
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      const isOutsideServices = servicesToggleRef.current && !servicesToggleRef.current.contains(e.target) &&
-        servicesMenuRef.current && !servicesMenuRef.current.contains(e.target);
-
-      const isOutsidePhotos = photosToggleRef.current && !photosToggleRef.current.contains(e.target) &&
-        photosMenuRef.current && !photosMenuRef.current.contains(e.target);
-
-      if (isOutsideServices) {
-        setDesktopServicesOpen(false);
-      }
-
-      if (isOutsidePhotos) {
-        setDesktopPhotosOpen(false);
-      }
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   return (
@@ -54,30 +67,103 @@ function Header() {
             <img src={logo} alt="Logo" />
           </Link>
 
-          <button className="menu-toggle d-lg-none" onClick={() => setMenuOpen(true)}>
-            <span className='menu-name px-3'>Menu</span>
+          {/* Mobile Menu Toggle */}
+          <button
+            className="menu-toggle d-lg-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span className="menu-name px-3">Menu</span>
             ☰
           </button>
 
+          {/* Mobile Menu Overlay */}
+          {menuOpen && (
+            <div className="mobile-menu-overlay open" ref={mobileMenuRef}>
+              <div className="mobile-nav">
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/" onClick={() => setMenuOpen(false)}>HOME</Link>
+                  </li>
+
+                  {/* Services Dropdown */}
+                  <li className="nav-item dropdown" ref={servicesRef}>
+                    <span
+                      className="nav-link dropdown-toggle"
+                      onClick={toggleServices} // Toggle the services menu open/close
+                      style={{ cursor: 'pointer' }}
+                    >
+                      SERVICES
+                    </span>
+                    {servicesOpen && (
+                      <div className="dropdown-menu show">
+                        <Link className="dropdown-item" to="/services/driveway-repair">Driveway Repair & Replacements</Link>
+                        <Link className="dropdown-item" to="/services/patio-design">Patio Design & Construction</Link>
+                        <Link className="dropdown-item" to="/services/slab-installation">Concrete Slab Installation</Link>
+                        <Link className="dropdown-item" to="/services/mitered-ends">Mitered Ends</Link>
+                        <Link className="dropdown-item" to="/services/sunken-room">Fill-in Sunken Living Room</Link>
+                        <Link className="dropdown-item" to="/services/parking-lot-repairs">Parking Lot Repairs and Curbing</Link>
+                        <Link className="dropdown-item" to="/services/bollards">Bollards Installation</Link>
+                      </div>
+                    )}
+                  </li>
+
+                  {/* Photos Dropdown */}
+                  <li className="nav-item dropdown" ref={photosRef}>
+                    <span
+                      className="nav-link dropdown-toggle"
+                      onClick={togglePhotos} // Toggle the photos menu open/close
+                      style={{ cursor: 'pointer' }}
+                    >
+                      PHOTOS
+                    </span>
+                    {photosOpen && (
+                      <ul className="dropdown-menu show">
+                        <li><Link className="dropdown-item" to="/photos/residential">Residential</Link></li>
+                        <li><Link className="dropdown-item" to="/photos/commercial">Commercial</Link></li>
+                      </ul>
+                    )}
+                  </li>
+
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/reviews" onClick={() => setMenuOpen(false)}>REVIEWS</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/team" onClick={() => setMenuOpen(false)}>TEAM</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/blog" onClick={() => setMenuOpen(false)}>BLOG</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/videos" onClick={() => setMenuOpen(false)}>VIDEOS</Link>
+                  </li>
+                </ul>
+
+                <div className="mobile-buttons">
+                  <button className="btn btn-success me-2">SEND US A TEXT</button>
+                  <button className="btn btn-outline-success">CALL NOW</button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Desktop Menu */}
           <div className="collapse navbar-collapse d-none d-lg-block">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item"><Link className="nav-link" to="/">HOME</Link></li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/">HOME</Link>
+              </li>
 
-              {/* SERVICES */}
-              <li className="nav-item dropdown">
+              {/* Services Dropdown */}
+              <li className="nav-item dropdown" ref={servicesRef}>
                 <span
                   className="nav-link dropdown-toggle"
-                  ref={servicesToggleRef}
-                  onClick={() => {
-                    setDesktopServicesOpen(!desktopServicesOpen);
-                    setDesktopPhotosOpen(false);
-                  }}
+                  onClick={toggleServices} // Toggle the services menu open/close
                   style={{ cursor: 'pointer' }}
                 >
                   SERVICES
                 </span>
-                {desktopServicesOpen && (
-                  <div className="dropdown-menu mega-menu show" ref={servicesMenuRef}>
+                {servicesOpen && (
+                  <div className="dropdown-menu mega-menu show">
                     <div className="mega-menu-column">
                       <Link className="dropdown-item" to="/services/driveway-repair">Driveway Repair & Replacements</Link>
                       <Link className="dropdown-item" to="/services/patio-design">Patio Design & Construction</Link>
@@ -99,20 +185,17 @@ function Header() {
                 )}
               </li>
 
-              <li className="nav-item dropdown">
+              {/* Photos Dropdown */}
+              <li className="nav-item dropdown" ref={photosRef}>
                 <span
                   className="nav-link dropdown-toggle"
-                  ref={photosToggleRef}
-                  onClick={() => {
-                    setDesktopPhotosOpen(!desktopPhotosOpen);
-                    setDesktopServicesOpen(false);
-                  }}
+                  onClick={togglePhotos} // Toggle the photos menu open/close
                   style={{ cursor: 'pointer' }}
                 >
                   PHOTOS
                 </span>
-                {desktopPhotosOpen && (
-                  <ul className="dropdown-menu show" ref={photosMenuRef}>
+                {photosOpen && (
+                  <ul className="dropdown-menu show">
                     <li><Link className="dropdown-item" to="/photos/residential">Residential</Link></li>
                     <li><Link className="dropdown-item" to="/photos/commercial">Commercial</Link></li>
                   </ul>
@@ -128,65 +211,6 @@ function Header() {
               <button className="btn btn-success me-2">SEND US A TEXT</button>
               <button className="btn btn-outline-success">CALL NOW</button>
             </div>
-          </div>
-        </div>
-
-        {/* Mobile Menu Overlay */}
-        <div className={`mobile-menu-overlay ${menuOpen ? 'open' : ''}`}>
-          <div>
-            <div className="mobile-menu-header">
-              <img src={logo} alt="Logo" className="mobile-logo" />
-              <svg onClick={() => setMenuOpen(false)} xmlns="http://www.w3.org/2000/svg" className="close-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </div>
-
-            <ul className="mobile-nav">
-              <li><Link to="/" onClick={() => setMenuOpen(false)}>HOME</Link></li>
-
-              <li className="has-submenu" onClick={() => setServicesOpen(!servicesOpen)} style={{ cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span>SERVICES</span>
-                <span className="submenu-icon">{servicesOpen ? "-" : "+"}</span>
-              </li>
-              {servicesOpen && (
-                <ul className="submenu">
-                  <li><Link to="/services/driveway-repair" onClick={() => setMenuOpen(false)}>Driveway Repair & Replacements</Link></li>
-                  <li><Link to="/services/patio-design" onClick={() => setMenuOpen(false)}>Patio Design & Construction</Link></li>
-                  <li><Link to="/services/slab-installation" onClick={() => setMenuOpen(false)}>Concrete Slab Installation</Link></li>
-                  <li><Link to="/services/mitered-ends" onClick={() => setMenuOpen(false)}>Mitered Ends</Link></li>
-                  <li><Link to="/services/sunken-room" onClick={() => setMenuOpen(false)}>Fill-in Sunken Living Room</Link></li>
-                  <li><Link to="/services/parking-lot-repairs" onClick={() => setMenuOpen(false)}>Parking Lot Repairs and Curbing</Link></li>
-                  <li><Link to="/services/bollards" onClick={() => setMenuOpen(false)}>Bollards Installation</Link></li>
-                  <li><Link to="/services/concrete-repairs" onClick={() => setMenuOpen(false)}>Concrete Repairs</Link></li>
-                  <li><Link to="/services/sidewalks" onClick={() => setMenuOpen(false)}>Sidewalks and Walkway Construction</Link></li>
-                  <li><Link to="/services/retaining-wall" onClick={() => setMenuOpen(false)}>Retaining Wall Construction</Link></li>
-                  <li><Link to="/services/floating-ponds" onClick={() => setMenuOpen(false)}>Modern Decorative Floating Ponds</Link></li>
-                  <li><Link to="/services/plumbing-trench" onClick={() => setMenuOpen(false)}>Plumbing Trench Concrete Pour Back</Link></li>
-                  <li><Link to="/services/culvert-pipe" onClick={() => setMenuOpen(false)}>Culvert Pipe Installation</Link></li>
-                </ul>
-              )}
-
-              <li className="has-submenu" onClick={() => setPhotosOpen(!photosOpen)} style={{ cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span>PHOTOS</span>
-                <span className="submenu-icon">{photosOpen ? "-" : "+"}</span>
-              </li>
-              {photosOpen && (
-                <ul className="submenu">
-                  <li><Link to="/photos/residential" onClick={() => setMenuOpen(false)}>Residential</Link></li>
-                  <li><Link to="/photos/commercial" onClick={() => setMenuOpen(false)}>Commercial</Link></li>
-                </ul>
-              )}
-
-              <li><Link to="/reviews" onClick={() => setMenuOpen(false)}>REVIEWS</Link></li>
-              <li><Link to="/team" onClick={() => setMenuOpen(false)}>TEAM</Link></li>
-              <li><Link to="/blog" onClick={() => setMenuOpen(false)}>BLOG</Link></li>
-              <li><Link to="/videos" onClick={() => setMenuOpen(false)}>VIDEOS</Link></li>
-            </ul>
-          </div>
-
-          <div className="mobile-buttons">
-            <button className="btn btn-success mb-2">SEND US A TEXT</button>
-            <button className="btn btn-outline-success">CALL NOW</button>
           </div>
         </div>
       </nav>
