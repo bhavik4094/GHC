@@ -147,7 +147,7 @@ body {
     visibility: visible;
   }
   .mobile-nav {
-    max-height: 80vh; /* Limit to 80% of screen height */
+    max-height: 66vh; /* Limit to 80% of screen height */
     overflow-y: auto; /* Enable vertical scroll */
     padding-right: 10px; /* Optional: avoid scroll overlap */
   }
