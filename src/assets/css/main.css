@@ -1,7 +1,7 @@
-
 body {
   padding-top: 80px;
 }
+
 .main-header {
   position: fixed;
   width: 100%;
@@ -86,7 +86,7 @@ body {
   padding-left: 30px;
   max-height: 300px;
   transition: height 0.3s ease-in-out;
-  
+
 }
 
 .main-header.scrolled .navbar-brand img {
@@ -110,19 +110,23 @@ body {
     color: white;
     z-index: 2;
   }
+
   .main-header.scrolled .navbar-brand img {
     height: 80px;
     padding-left: 0px;
   }
+
   .navbar-brand img {
     height: 80px;
     padding-left: 0px;
-    
-   
-}
-.main-header{
-  padding: 0px !important;
-}
+
+
+  }
+
+  .main-header {
+    padding: 0px !important;
+  }
+
   .mobile-menu-overlay {
     position: fixed;
     top: 0;
@@ -148,49 +152,60 @@ body {
     pointer-events: auto;
     visibility: visible;
   }
+
   .mobile-nav {
-    max-height: 80vh; /* Limit to 80% of screen height */
-    overflow-y: auto; /* Enable vertical scroll */
-    padding-right: 10px; /* Optional: avoid scroll overlap */
+    max-height: 80vh;
+    /* Limit to 80% of screen height */
+    overflow-y: auto;
+    /* Enable vertical scroll */
+    padding-right: 10px;
+    /* Optional: avoid scroll overlap */
   }
-  
+
   .mobile-nav::-webkit-scrollbar {
     width: 6px;
   }
+
   .mobile-menu-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Full screen height */
-    background-color: white; /* or your theme color */
-    position: fixed; /* optional: for full-screen mobile menu */
+    height: 100vh;
+    /* Full screen height */
+    background-color: white;
+    /* or your theme color */
+    position: fixed;
+    /* optional: for full-screen mobile menu */
     top: 0;
     left: 0;
     right: 0;
-    z-index: 999; /* make sure it sits above other content */
+    z-index: 999;
+    /* make sure it sits above other content */
   }
-  
+
   .mobile-nav {
     flex: 1;
     overflow-y: auto;
     padding: 1rem;
   }
-  
+
   .mobile-buttons {
     padding: 1rem;
     border-top: 1px solid #eee;
-    background-color: #fff; /* ensure it's visible above nav */
+    background-color: #fff;
+    /* ensure it's visible above nav */
     position: sticky;
     bottom: 0;
   }
-  
+
   .mobile-nav::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
   }
+
   .mobile-nav {
     scroll-behavior: smooth;
   }
-    
+
 
   .mobile-nav {
     list-style: none;
@@ -302,9 +317,9 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  background: rgb(255, 255, 255)!important;
+  background: rgb(255, 255, 255) !important;
   border: 1px solid #ffffff;
-  color: rgb(0, 0, 0)!important;
+  color: rgb(0, 0, 0) !important;
   width: 600px;
   padding: 20px 30px;
   z-index: 1001;
@@ -337,51 +352,64 @@ body {
   background-color: #000000;
   color: rgb(255, 255, 255);
 }
+
 @media (max-width: 480px) {
   .mobile-nav {
-    max-height: 66vh; /* Limit to 80% of screen height */
-    overflow-y: auto; /* Enable vertical scroll */
-    padding-right: 10px; /* Optional: avoid scroll overlap */
+    max-height: 66vh;
+    /* Limit to 80% of screen height */
+    overflow-y: auto;
+    /* Enable vertical scroll */
+    padding-right: 10px;
+    /* Optional: avoid scroll overlap */
   }
 }
 
 
-/* hero-section-css */
+
+
+
+/* ============================
+ HER0 SECTION CSS
+============================ */
 
 .hero-section {
-  position: relative;
-  height: 100vh;
-  background-image: url('./src/assets/img/hero-bg.webp');
+  background: url("../img/hero-bg.webp") no-repeat center center;
   background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  color: white; /* Ensure text is white */
-}
-
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-  z-index: 1;
-}
-
-/* Make sure your text content appears above the overlay */
-.hero-section .container {
+  min-height: 100vh;
   position: relative;
-  z-index: 2;
 }
 
-.hero-title{
-  color: white;
-  font-size: 60px;
-  line-height: 60px !important;
-  font-weight: 700;
+.hero-bg-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  /* Dark overlay for text readability */
+  min-height: 100vh;
+  padding: 4rem 2rem;
 }
-.hero-sub-title{
-  font-size: 22px;
-  color: white;
+
+.img-top,
+.img-bottom {
+  max-width: 384px !important;
+  width: 100%;
+  height: auto;
+}
+
+.img-bottom {
+  margin-top: 48px;
+  margin-left: 56px;
+}
+
+.hero-heading {
+  font-weight: 900 !important;
+  line-height: 72px !important;
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.recaptcha-placeholder {
+  z-index: 10;
 }

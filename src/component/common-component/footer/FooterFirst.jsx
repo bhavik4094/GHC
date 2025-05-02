@@ -5,7 +5,7 @@ import pagetear from '../../../assets/img/footer-pagetear-img.webp';
 function FooterFirst() {
     return (
         <div className="footer-wrapper">
-            <div className="py-5 bg-secondary"></div>
+            {/* <div className="bg-secondary"></div> */}
             <section
                 className="cta-section text-white text-center position-relative overflow-hidden d-flex align-items-center justify-content-center"
                 style={{
