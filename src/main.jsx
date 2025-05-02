@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "swiper/swiper-bundle.css";
 import "./assets/css/main.css";
+import "./assets/js/main.js"
 import "./assets/css/Footer.css";
 
 import { RouterProvider } from "react-router-dom";

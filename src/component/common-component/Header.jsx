@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../assets/img/logo.webp";
 
@@ -7,6 +7,14 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [photosOpen, setPhotosOpen] = useState(false);
+  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
+  const [desktopPhotosOpen, setDesktopPhotosOpen] = useState(false);
+
+  const servicesToggleRef = useRef(null);
+  const servicesMenuRef = useRef(null);
+  const photosToggleRef = useRef(null);
+  const photosMenuRef = useRef(null);
+
 
   const handleScroll = () => {
     setScrolled(window.scrollY > 50);
@@ -15,6 +23,27 @@ function Header() {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      const isOutsideServices = servicesToggleRef.current && !servicesToggleRef.current.contains(e.target) &&
+        servicesMenuRef.current && !servicesMenuRef.current.contains(e.target);
+
+      const isOutsidePhotos = photosToggleRef.current && !photosToggleRef.current.contains(e.target) &&
+        photosMenuRef.current && !photosMenuRef.current.contains(e.target);
+
+      if (isOutsideServices) {
+        setDesktopServicesOpen(false);
+      }
+
+      if (isOutsidePhotos) {
+        setDesktopPhotosOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   return (
@@ -34,36 +63,60 @@ function Header() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item"><Link className="nav-link" to="/">HOME</Link></li>
 
+              {/* SERVICES */}
               <li className="nav-item dropdown">
-                <span className="nav-link dropdown-toggle">SERVICES</span>
-                <div className="dropdown-menu mega-menu">
-                  <div className="mega-menu-column">
-                    <Link className="dropdown-item" to="/services/driveway-repair">Driveway Repair & Replacements</Link>
-                    <Link className="dropdown-item" to="/services/patio-design">Patio Design & Construction</Link>
-                    <Link className="dropdown-item" to="/services/slab-installation">Concrete Slab Installation</Link>
-                    <Link className="dropdown-item" to="/services/mitered-ends">Mitered Ends</Link>
-                    <Link className="dropdown-item" to="/services/sunken-room">Fill-in Sunken Living Room</Link>
-                    <Link className="dropdown-item" to="/services/parking-lot-repairs">Parking Lot Repairs and Curbing</Link>
-                    <Link className="dropdown-item" to="/services/bollards">Bollards Installation</Link>
+                <span
+                  className="nav-link dropdown-toggle"
+                  ref={servicesToggleRef}
+                  onClick={() => {
+                    setDesktopServicesOpen(!desktopServicesOpen);
+                    setDesktopPhotosOpen(false);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  SERVICES
+                </span>
+                {desktopServicesOpen && (
+                  <div className="dropdown-menu mega-menu show" ref={servicesMenuRef}>
+                    <div className="mega-menu-column">
+                      <Link className="dropdown-item" to="/services/driveway-repair">Driveway Repair & Replacements</Link>
+                      <Link className="dropdown-item" to="/services/patio-design">Patio Design & Construction</Link>
+                      <Link className="dropdown-item" to="/services/slab-installation">Concrete Slab Installation</Link>
+                      <Link className="dropdown-item" to="/services/mitered-ends">Mitered Ends</Link>
+                      <Link className="dropdown-item" to="/services/sunken-room">Fill-in Sunken Living Room</Link>
+                      <Link className="dropdown-item" to="/services/parking-lot-repairs">Parking Lot Repairs and Curbing</Link>
+                      <Link className="dropdown-item" to="/services/bollards">Bollards Installation</Link>
+                    </div>
+                    <div className="mega-menu-column">
+                      <Link className="dropdown-item" to="/services/concrete-repairs">Concrete Repairs</Link>
+                      <Link className="dropdown-item" to="/services/sidewalks">Sidewalks and Walkway Construction</Link>
+                      <Link className="dropdown-item" to="/services/retaining-wall">Retaining Wall Construction</Link>
+                      <Link className="dropdown-item" to="/services/floating-ponds">Modern Decorative Floating Ponds</Link>
+                      <Link className="dropdown-item" to="/services/plumbing-trench">Plumbing Trench Concrete Pour Back</Link>
+                      <Link className="dropdown-item" to="/services/culvert-pipe">Culvert Pipe Installation</Link>
+                    </div>
                   </div>
-                  <div className="mega-menu-column">
-                    <Link className="dropdown-item" to="/services/concrete-repairs">Concrete Repairs</Link>
-                    <Link className="dropdown-item" to="/services/sidewalks">Sidewalks and Walkway Construction</Link>
-                    <Link className="dropdown-item" to="/services/retaining-wall">Retaining Wall Construction</Link>
-                    <Link className="dropdown-item" to="/services/floating-ponds">Modern Decorative Floating Ponds</Link>
-                    <Link className="dropdown-item" to="/services/plumbing-trench">Plumbing Trench Concrete Pour Back</Link>
-                    <Link className="dropdown-item" to="/services/culvert-pipe">Culvert Pipe Installation</Link>
-                  </div>
-                </div>
+                )}
               </li>
 
-
               <li className="nav-item dropdown">
-                <span className="nav-link dropdown-toggle">PHOTOS</span>
-                <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" to="/photos/residential">Residential</Link></li>
-                  <li><Link className="dropdown-item" to="/photos/commercial">Commercial</Link></li>
-                </ul>
+                <span
+                  className="nav-link dropdown-toggle"
+                  ref={photosToggleRef}
+                  onClick={() => {
+                    setDesktopPhotosOpen(!desktopPhotosOpen);
+                    setDesktopServicesOpen(false);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  PHOTOS
+                </span>
+                {desktopPhotosOpen && (
+                  <ul className="dropdown-menu show" ref={photosMenuRef}>
+                    <li><Link className="dropdown-item" to="/photos/residential">Residential</Link></li>
+                    <li><Link className="dropdown-item" to="/photos/commercial">Commercial</Link></li>
+                  </ul>
+                )}
               </li>
 
               <li className="nav-item"><Link className="nav-link" to="/reviews">REVIEWS</Link></li>
@@ -78,7 +131,7 @@ function Header() {
           </div>
         </div>
 
-        {/* Mobile Overlay */}
+        {/* Mobile Menu Overlay */}
         <div className={`mobile-menu-overlay ${menuOpen ? 'open' : ''}`}>
           <div>
             <div className="mobile-menu-header">
@@ -97,13 +150,19 @@ function Header() {
               </li>
               {servicesOpen && (
                 <ul className="submenu">
-                  <li><Link to="/services/driveways" onClick={() => setMenuOpen(false)}>Driveway Repair & Replacements</Link></li>
-                  <li><Link to="/services/patios" onClick={() => setMenuOpen(false)}>Sidewalks and Walkway Construction</Link></li>
-                  <li><Link to="/services/driveways" onClick={() => setMenuOpen(false)}>Concrete Slab Installation</Link></li>
-                  <li><Link to="/services/patios" onClick={() => setMenuOpen(false)}>Mitered Ends</Link></li>
-                  <li><Link to="/services/driveways" onClick={() => setMenuOpen(false)}>Fill-in Sunken Living Room</Link></li>
-                  <li><Link to="/services/patios" onClick={() => setMenuOpen(false)}>Parking Lot Repairs and Curbing</Link></li>  <li><Link to="/services/driveways" onClick={() => setMenuOpen(false)}>Driveways</Link></li>
-                  <li><Link to="/services/patios" onClick={() => setMenuOpen(false)}>Bollards Installation</Link></li>
+                  <li><Link to="/services/driveway-repair" onClick={() => setMenuOpen(false)}>Driveway Repair & Replacements</Link></li>
+                  <li><Link to="/services/patio-design" onClick={() => setMenuOpen(false)}>Patio Design & Construction</Link></li>
+                  <li><Link to="/services/slab-installation" onClick={() => setMenuOpen(false)}>Concrete Slab Installation</Link></li>
+                  <li><Link to="/services/mitered-ends" onClick={() => setMenuOpen(false)}>Mitered Ends</Link></li>
+                  <li><Link to="/services/sunken-room" onClick={() => setMenuOpen(false)}>Fill-in Sunken Living Room</Link></li>
+                  <li><Link to="/services/parking-lot-repairs" onClick={() => setMenuOpen(false)}>Parking Lot Repairs and Curbing</Link></li>
+                  <li><Link to="/services/bollards" onClick={() => setMenuOpen(false)}>Bollards Installation</Link></li>
+                  <li><Link to="/services/concrete-repairs" onClick={() => setMenuOpen(false)}>Concrete Repairs</Link></li>
+                  <li><Link to="/services/sidewalks" onClick={() => setMenuOpen(false)}>Sidewalks and Walkway Construction</Link></li>
+                  <li><Link to="/services/retaining-wall" onClick={() => setMenuOpen(false)}>Retaining Wall Construction</Link></li>
+                  <li><Link to="/services/floating-ponds" onClick={() => setMenuOpen(false)}>Modern Decorative Floating Ponds</Link></li>
+                  <li><Link to="/services/plumbing-trench" onClick={() => setMenuOpen(false)}>Plumbing Trench Concrete Pour Back</Link></li>
+                  <li><Link to="/services/culvert-pipe" onClick={() => setMenuOpen(false)}>Culvert Pipe Installation</Link></li>
                 </ul>
               )}
 
