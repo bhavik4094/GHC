@@ -383,7 +383,7 @@ body {
   background: rgba(0, 0, 0, 0.5);
   /* Dark overlay for text readability */
   min-height: 100vh;
-  padding: 4rem 2rem;
+  /* padding: 4rem 2rem; */
 }
 
 .img-top,
@@ -394,22 +394,81 @@ body {
 }
 
 .img-bottom {
-  margin-top: 48px;
+  margin-top: 32px !important;
   margin-left: 56px;
 }
 
 .hero-heading {
   font-weight: 900 !important;
-  line-height: 72px !important;
+  /* line-height: 72px !important; */
 }
 
 .lead {
   font-size: 18px;
-  line-height: 24px;
+  /* line-height: 24px; */
   font-weight: 500;
   margin-top: 20px;
 }
 
 .recaptcha-placeholder {
   z-index: 10;
+}
+
+.hero-buttons {
+  padding: 16px 40px !important;
+
+}
+
+
+/* ============================
+ HERO ICONS PANEL CSS
+============================ */
+
+.hero-panel-icon {
+  /* max-height: 32px ; */
+  height: 32px;
+  width: auto;
+}
+
+.trust-section {
+  background-color: #000;
+}
+
+.trust-icon {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.trust-label {
+  font-weight: 900;
+  font-size: 18px;
+  color: #fff;
+  margin: 0;
+
+}
+
+.trust-section-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 480px) {
+  .trust-section-component {
+    display: block;
+
+  }
+}
+
+
+.years-in-business {
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 32px;
+  letter-spacing: -0.24px;
+  text-transform: uppercase;
 }
