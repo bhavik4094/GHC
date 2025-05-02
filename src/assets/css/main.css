@@ -344,3 +344,44 @@ body {
     padding-right: 10px; /* Optional: avoid scroll overlap */
   }
 }
+
+
+/* hero-section-css */
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background-image: url('./src/assets/img/hero-bg.webp');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  color: white; /* Ensure text is white */
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+/* Make sure your text content appears above the overlay */
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title{
+  color: white;
+  font-size: 60px;
+  line-height: 60px !important;
+  font-weight: 700;
+}
+.hero-sub-title{
+  font-size: 22px;
+  color: white;
+}
