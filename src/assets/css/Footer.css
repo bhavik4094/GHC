@@ -2,15 +2,15 @@
    Root Variables
 ============================ */
 :root {
-    --color-black: #111827;
-    --color-white: #fff;
-    --color-green: #64aa0e;
-    --color-green-dark: #6bb33a;
-    --color-green-light: #8AC600;
+  --color-black: #111827;
+  --color-white: #fff;
+  --color-green: #64aa0e;
+  --color-green-dark: #6bb33a;
+  --color-green-light: #8ac600;
 }
 
 h2 {
-    line-height: 48px !important;
+  line-height: 48px !important;
 }
 
 /* ============================
@@ -18,60 +18,57 @@ h2 {
   ============================ */
 
 .btn-success {
-    background-color: var(--color-green);
-    border: none;
-    font-weight: bold;
-    font-size: 18px !important;
-    line-height: 28px !important;
-
+  background-color: var(--color-green);
+  border: none;
+  font-weight: bold;
+  font-size: 18px !important;
+  line-height: 28px !important;
 }
 
 .btn-outline-success {
-    color: var(--color-green);
-    border-color: var(--color-green);
-    font-weight: bold;
+  color: var(--color-green);
+  border-color: var(--color-green);
+  font-weight: bold;
 }
 
 .btn-green {
-    background-color: var(--color-green);
-    color: var(--color-white);
-    padding: 0.75rem 1.5rem;
-    font-weight: bold;
-    border: 2px solid var(--color-green);
-    border-radius: 0.125rem;
-    transition: all 0.3s ease;
-    font-size: 18px;
-    line-height: 28px;
-    font-weight: 900;
-    transition: all .3s ease-in-out;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border: 2px solid var(--color-green);
+  border-radius: 0.125rem;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 900;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-green:hover {
-    background-color: var(--color-green);
-    color: var(--color-white);
-    border: 2px solid var(--color-white);
-
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
 }
 
 .btn-outline-green {
-    background-color: var(--color-white);
-    border: 2px solid var(--color-green);
-    color: var(--color-green);
-    padding: 0.75rem 1.5rem;
-    font-weight: bold;
-    border-radius: 0.125rem;
-    transition: all 0.3s ease;
-    font-size: 18px;
-    line-height: 28px;
-    font-weight: 900;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-green);
+  color: var(--color-green);
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 0.125rem;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 900;
 }
 
 .btn-outline-green:hover {
-    background-color: var(--color-white);
-    border: 2px solid var(--color-green);
-    color: var(--color-green);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-green);
+  color: var(--color-green);
 }
-
 
 /* ============================
 First Footer CSS
@@ -79,146 +76,141 @@ First Footer CSS
 
 /* CTA Section Styles */
 .cta-section {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 550px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 550px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .cta-content {
-    z-index: 2;
-    height: 100% !important;
-    position: relative;
-    text-align: center;
+  z-index: 2;
+  height: 100% !important;
+  position: relative;
+  text-align: center;
 }
 
 /* CSA OUTER CONTAINER */
 .cta-outer-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-tear {
-    z-index: 2;
-    line-height: 0;
+  z-index: 2;
+  line-height: 0;
 }
-
 
 /* ============================
 Second Footer CSS
 ============================ */
 .second-footer-continer {
-    padding: 64px 32px 40px;
+  /* padding: 64px 32px 40px; */
+  padding: 48px 16px;
 }
 
 .secondfooter-links {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    line-height: 24px !important;
-
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  line-height: 24px !important;
 }
 
 .secondfooter-links:hover {
-    color: rgba(209, 213, 219, 1);
+  color: rgba(209, 213, 219, 1);
 }
 
 .list-unstyled-div {
-    max-width: 176px !important;
-    width: 100%;
+  max-width: 176px !important;
+  width: 100%;
 }
 
 /* FOOTER CONTACT CARD */
 
-.footer-card-img {
-    max-width: 124px;
-    width: 100%;
-    height: auto;
+@media (max-width: 575.98px) {
+  .responsive-logo {
+    max-width: 128px;
+  }
 }
 
 .footer-contact-card-content {
-    font-size: 18px;
-    line-height: 24px !important;
-    word-break: break-word;
-    overflow-wrap: break-word;
+  font-size: 18px;
+  line-height: 24px !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .footer-contact-card-content h6 {
-    font-size: 18px;
-    line-height: 24px !important;
-    font-weight: 900 !important;
+  font-size: 18px;
+  line-height: 24px !important;
+  font-weight: 900 !important;
 }
 
 .footer-contact-card-btns {
-    background-color: var(--color-green);
+  background-color: var(--color-green);
 }
 
 .footer-contact-card-btn1 {
-    font-size: 18px;
-    color: #fff;
-    font-weight: 900;
-    line-height: 28px !important;
-
+  font-size: 18px;
+  color: #fff;
+  font-weight: 900;
+  line-height: 28px !important;
 }
 
 .footer-contact-card-btn2 {
-    font-size: 16px !important;
-    color: #000000;
-    font-weight: 900;
-    line-height: 24px !important;
-    border: 2px solid black !important;
+  font-size: 16px !important;
+  color: #000000;
+  font-weight: 900;
+  line-height: 24px !important;
+  border: 2px solid black !important;
 }
 
 .footer-contact-card-btn2:hover {
-    background-color: #fff;
-    color: #000000;
+  background-color: #fff;
+  color: #000000;
 }
 
 /* Target only tablets (768px to 991.98px) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-
-    /* Styles specific to tablets go here */
-    .footer-contact-card-btn2,
-    .footer-contact-card-btn1 {
-        max-width: fit-content !important;
-        width: 100% !important;
-    }
+  /* Styles specific to tablets go here */
+  .footer-contact-card-btn2,
+  .footer-contact-card-btn1 {
+    max-width: fit-content !important;
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 576px) {
-
-    /* Styles specific to tablets go here */
-    .footer-contact-card-btn2,
-    .footer-contact-card-btn1 {
-        padding: 12px 0px !important;
-    }
+  /* Styles specific to tablets go here */
+  .footer-contact-card-btn2,
+  .footer-contact-card-btn1 {
+    padding: 12px 0px !important;
+  }
 }
 
 .footer-card-logo {
-    max-height: 40px;
-    width: auto;
-    height: 100%;
-    margin-right: 24px;
-    margin-top: 24px;
+  max-height: 40px;
+  width: auto;
+  height: 100%;
+  margin-right: 24px;
+  margin-top: 24px;
 }
 
 /* THIRD FOOTER CSS */
 .footer-third-container {
-    border-top: 2px solid #64aa0e;
-    padding-top: 40px;
-    margin-top: 48px;
+  border-top: 2px solid #64aa0e;
+  padding-top: 40px;
+  margin-top: 48px;
 }
