@@ -1,17 +1,17 @@
 import React from "react";
 import heroImg1 from "../../assets/img/hero-img2.webp"
 import heroImg2 from "../../assets/img/hero-img1.webp"
-import HeroPanel from "./HeroPanel";
+
 
 const HeroSection = () => {
     return (
         <div>
             <section className="hero-section position-relative text-white">
                 {/* Background Image */}
-                <div className="hero-bg-overlay d-flex align-items-center">
-                    <div className="container">
-                        <div className="row align-items-center">
-                            <div className=" col-lg-6 col-md-10 col-sm-12 text-content">
+                <div className="hero-bg-overlay">
+                    <div className="container-xl">
+                        <div className="row hero-row ">
+                            <div className=" col-xl-6 col-lg-8 col-md-10 col-sm-12 px-3 text-content">
                                 <h1 className="hero-heading display-2 mb-0">GREEN HAMMER CONCRETE</h1>
                                 <p className="lead mb-0">
                                     Reliable concrete company serving Palm Bay, FL and surrounding areas.
@@ -39,7 +39,7 @@ const HeroSection = () => {
                             </div>
 
                             {/* Right-side Images */}
-                            <div className="col-md-6 d-none d-lg-block herosection-img-container">
+                            <div className="col-xl-4 d-none d-xl-block herosection-img-container">
                                 <img
                                     src={heroImg1}
                                     alt="Concrete Project 1"
@@ -48,7 +48,7 @@ const HeroSection = () => {
                                 <img
                                     src={heroImg2}
                                     alt="Concrete Project 2"
-                                    className="img-fluid img-bottom shadow mt-5"
+                                    className="img-fluid img-bottom shadow"
                                 />
                             </div>
 
@@ -56,7 +56,7 @@ const HeroSection = () => {
                     </div>
                 </div>
             </section>
-            <HeroPanel />
+
         </div>
     );
 };

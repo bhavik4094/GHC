@@ -106,6 +106,15 @@ First Footer CSS
     text-align: center;
 }
 
+.cta-content-heading h2 {
+    font-weight: 900 !important;
+    font-size: 48px;
+}
+
+.cta-content-btns {
+    padding: 16px 40px !important;
+}
+
 /* CSA OUTER CONTAINER */
 .cta-outer-container {
     display: flex;
@@ -117,6 +126,28 @@ First Footer CSS
     line-height: 0;
 }
 
+@media (max-width: 576px) {
+
+    .cta-content {
+        padding-top: 72px;
+    }
+
+    .cta-content-heading h2 {
+        font-size: 36px;
+        line-height: 40px !important;
+    }
+
+    .cta-btns {
+        width: 100%;
+
+    }
+
+    .cta-content-btns {
+        font-size: 16px;
+        padding: 12px !important;
+
+    }
+}
 
 /* ============================
 Second Footer CSS
@@ -130,22 +161,15 @@ Second Footer CSS
     color: white;
     font-size: 16px;
     line-height: 24px !important;
-
 }
 
 .secondfooter-links:hover {
     color: rgba(209, 213, 219, 1);
 }
 
-.list-unstyled-div {
-    max-width: 176px !important;
-    width: 100%;
-}
-
-/* FOOTER CONTACT CARD */
-
+/* Contact Card */
 .footer-card-img {
-    max-width: 124px;
+    max-width: 160px;
     width: 100%;
     height: auto;
 }
@@ -172,12 +196,11 @@ Second Footer CSS
     color: #fff;
     font-weight: 900;
     line-height: 28px !important;
-
 }
 
 .footer-contact-card-btn2 {
     font-size: 16px !important;
-    color: #000000;
+    color: #000;
     font-weight: 900;
     line-height: 24px !important;
     border: 2px solid black !important;
@@ -185,27 +208,7 @@ Second Footer CSS
 
 .footer-contact-card-btn2:hover {
     background-color: #fff;
-    color: #000000;
-}
-
-/* Target only tablets (768px to 991.98px) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-
-    /* Styles specific to tablets go here */
-    .footer-contact-card-btn2,
-    .footer-contact-card-btn1 {
-        max-width: fit-content !important;
-        width: 100% !important;
-    }
-}
-
-@media (max-width: 576px) {
-
-    /* Styles specific to tablets go here */
-    .footer-contact-card-btn2,
-    .footer-contact-card-btn1 {
-        padding: 12px 0px !important;
-    }
+    color: #000;
 }
 
 .footer-card-logo {
@@ -216,9 +219,46 @@ Second Footer CSS
     margin-top: 24px;
 }
 
-/* THIRD FOOTER CSS */
+/* Responsive Styles */
+@media (min-width: 768px) and (max-width: 1200px) {
+
+    .footer-contact-card-btn1,
+    .footer-contact-card-btn2 {
+        max-width: fit-content !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 1200px) {
+    .footer-card-img-div {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 991px) {
+    .second-footer-continer {
+        padding: 48px 24px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .footer-contact-card-btn1,
+    .footer-contact-card-btn2 {
+        padding: 12px 0 !important;
+    }
+
+    .second-footer-continer {
+        padding: 48px 16px;
+    }
+}
+
+/* ============================
+Third Footer CSS
+============================ */
+/* Bottom Footer */
 .footer-third-container {
     border-top: 2px solid #64aa0e;
     padding-top: 40px;
     margin-top: 48px;
+    gap: 1.5rem;
 }
