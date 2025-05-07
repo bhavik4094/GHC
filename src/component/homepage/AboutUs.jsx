@@ -24,7 +24,7 @@ const AboutUsSection = () => {
 
     return (
         <section className="about-us-section">
-            <div className="container-xxl py-5 px-3">
+            <div className="container-xxl pt-4 pb-0 px-2 py-md-5 px-md-3">
                 <div className="row">
                     {/* === Left Column === */}
                     <div className="col-lg-5 col-md-4  mb-lg-0">
@@ -41,7 +41,7 @@ const AboutUsSection = () => {
                         <p className="about-text">{about.description}</p>
 
                         {/* Social Icons & Small Image */}
-                        <div className=" mt-4  about-icon-box-div">
+                        <div className="     mt-4  about-icon-box-div">
                             <div className="about-icon-box d-none d-md-flex">
                                 {socialIcons.map((icon, index) => (
                                     <img
@@ -67,7 +67,7 @@ const AboutUsSection = () => {
 
 
                     {/* === Right Column === */}
-                    <div className="col-lg-7 col-md-8 col-12 about-img-section-div d-none d-md-block">
+                    <div className="col-lg-7 col-md-8 col-12 about-img-section-div d-none d-md-block ">
                         <img
                             src={about.bigImage}
                             alt="Green Hammer Concrete Team"
@@ -80,9 +80,9 @@ const AboutUsSection = () => {
 
             </div>
 
-            <div>
+            <div className='pb-4 pb-md-0'>
                 {/* Images Side-by-Side */}
-                <div className="d-flex mx-0 justify-content-between d-block d-md-none" style={{ height: "200px" }}>
+                <div className="d-flex mx-0 justify-content-between d-block d-md-none " style={{ height: "200px" }}>
                     <img
                         src={about.smallImage}
                         alt="Concrete Driveway"
@@ -98,7 +98,7 @@ const AboutUsSection = () => {
                 </div>
 
                 {/* Social Icons */}
-                <div className="d-flex justify-content-center gap-4 d-block d-md-none mt-4">
+                <div className="d-flex justify-content-center gap-4 d-block d-md-none mt-4 pb-2">
                     {socialIcons.slice(0, 3).map((icon, index) => (
                         <img
                             key={index}
