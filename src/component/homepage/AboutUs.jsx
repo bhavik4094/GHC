@@ -4,98 +4,119 @@ import smallImg from '../../assets/img/hero-img1.webp';
 import googleLogo from '../../assets/img/google-logo.webp';
 import facebookLogo from '../../assets/img/facebook-logo.webp';
 import nextdoorLogo from '../../assets/img/nextdoor.webp';
+import transLogo from '../../assets/img/tranperent-icon.webp';
 
 const AboutUsSection = () => {
     const about = {
         heading: 'ABOUT US',
         description:
             'Green Hammer Concrete provides top-quality concrete services to Palm Bay and the surrounding areas. With our team of experienced professionals, we guarantee superior results for all residential, commercial and industrial projects. Our commitment to excellence ensures satisfaction every time.',
-        google_maps_url: 'https://maps.google.com',
-        facebook_url: 'https://facebook.com',
-        nextdoor_url: 'https://nextdoor.com',
-        small_image: smallImg,
-        big_image: bigImg,
+        smallImage: smallImg,
+        bigImage: bigImg,
     };
+
+    const socialIcons = [
+        { src: googleLogo, alt: 'Google Logo' },
+        { src: facebookLogo, alt: 'Facebook Logo' },
+        { src: nextdoorLogo, alt: 'Nextdoor Logo' },
+        { src: transLogo, alt: 'Transparent Icon' },
+    ];
 
     return (
         <section className="about-us-section">
-            <div className="container py-5">
-                <div className="row align-items-center justify-content-center">
+            <div className="container-xxl py-5 px-3">
+                <div className="row">
                     {/* === Left Column === */}
-                    <div className="col-lg-5 mb-4 mb-lg-0">
-                        <div className='d-flex gap-2 align-items-center justify-content-between'>
-                            <h2 className="about-heading">{about.heading}</h2>
-                            <div className="bg-secondary d-none d-lg-block my-3" style={{ height: '1px' }}></div>
+                    <div className="col-lg-5 col-md-4  mb-lg-0">
+                        {/* Heading */}
+                        <div className="d-flex about-heading-box align-items-center">
+                            <h2 className="about-heading mb-0 responsive-nowrap">{about.heading}</h2>
+                            <div
+                                className="about-headerline flex-grow-1 d-block hide-md-only"
+                                style={{ height: '1px', minWidth: '20px' }}
+                            ></div>
                         </div>
+
+                        {/* Description */}
                         <p className="about-text">{about.description}</p>
 
-                        {/* Social Icons and Small Image */}
-                        <div className="row mt-4">
-                            {/* Social Icons */}
-                            <div className="col-md-6 col-12 mb-3 mb-md-0">
-                                <div className="social-icons d-flex gap-3">
-                                    {about.google_maps_url && (
-                                        <a href={about.google_maps_url} target="_blank" rel="noopener noreferrer">
-                                            <img
-                                                src={googleLogo}
-                                                alt="Google"
-                                                className="hover-raise"
-                                            />
-                                        </a>
-                                    )}
-                                    {about.facebook_url && (
-                                        <a href={about.facebook_url} target="_blank" rel="noopener noreferrer">
-                                            <img
-                                                src={facebookLogo}
-                                                alt="Facebook"
-                                                className="hover-raise"
-                                            />
-                                        </a>
-                                    )}
-                                    {about.nextdoor_url && (
-                                        <a href={about.nextdoor_url} target="_blank" rel="noopener noreferrer">
-                                            <img
-                                                src={nextdoorLogo}
-                                                alt="Nextdoor"
-                                                className="hover-raise"
-                                            />
-                                        </a>
-                                    )}
-                                </div>
+                        {/* Social Icons & Small Image */}
+                        <div className=" mt-4  about-icon-box-div">
+                            <div className="about-icon-box d-none d-md-flex">
+                                {socialIcons.map((icon, index) => (
+                                    <img
+                                        key={index}
+                                        src={icon.src}
+                                        alt={icon.alt}
+                                        className="footer-card-logo2"
+                                        style={{ maxWidth: "50px", height: "100%", width: "100%" }}
+                                    />
+                                ))}
                             </div>
-
-                            {/* Desktop-only small image */}
-                            <div className="col-md-6 d-none d-lg-block">
-                                <img
-                                    src={about.small_image}
-                                    alt="Driveway Project"
-                                    className="img-fluid mb-3"
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* === Right Column === */}
-                    <div className="col-lg-6 text-center position-relative">
-                        {/* Mobile image (small) overlayed or stacked */}
-                        <div className="d-block d-lg-none mb-3">
                             <img
-                                src={about.small_image}
-                                alt="Driveway Project Mobile"
-                                className="img-fluid"
+                                src={about.smallImage}
+                                alt="Concrete Driveway Project"
+                                className="about-img1 d-none d-lg-block"
                             />
                         </div>
+                    </div>
 
-                        {/* Main Image */}
+                    {/* === Mobile Image Column === */}
+
+
+
+
+                    {/* === Right Column === */}
+                    <div className="col-lg-7 col-md-8 col-12 about-img-section-div d-none d-md-block">
                         <img
-                            src={about.big_image}
-                            alt="Team Photo"
-                            className="img-fluid rounded img-section"
+                            src={about.bigImage}
+                            alt="Green Hammer Concrete Team"
+                            className="about-img-section"
                         />
                     </div>
+
+
+                </div>
+
+            </div>
+
+            <div>
+                {/* Images Side-by-Side */}
+                <div className="d-flex mx-0 justify-content-between d-block d-md-none" style={{ height: "200px" }}>
+                    <img
+                        src={about.smallImage}
+                        alt="Concrete Driveway"
+                        className="img-fluid me-2 mt-auto"
+                        style={{ width: '40%', objectFit: "contain", height: "auto" }}
+                    />
+                    <img
+                        src={about.bigImage}
+                        alt="Green Hammer Team"
+                        className="img-fluid mb-auto"
+                        style={{ width: '60%', objectFit: "contain", height: "auto" }}
+                    />
+                </div>
+
+                {/* Social Icons */}
+                <div className="d-flex justify-content-center gap-4 d-block d-md-none mt-4">
+                    {socialIcons.slice(0, 3).map((icon, index) => (
+                        <img
+                            key={index}
+                            src={icon.src}
+                            alt={icon.alt}
+                            style={{
+                                width: '50px',
+                                height: 'auto',
+                                objectFit: 'contain',
+                            }}
+                        />
+                    ))}
                 </div>
             </div>
-        </section>
+
+
+
+        </section >
     );
 };
 
