@@ -4,9 +4,9 @@ import pagetear from '../../../assets/img/footer-pagetear-img.webp';
 
 function FooterFirst() {
     return (
-        <div className="footer-wrapper">
+        <section className="footer-wrapper">
             {/* <div className="bg-secondary"></div> */}
-            <section
+            <div
                 className="cta-section  contianer container-fluid text-white text-center position-relative overflow-hidden d-flex align-items-center justify-content-center"
                 style={{
                     backgroundImage: `url(${backgroundImage})`,
@@ -42,8 +42,8 @@ function FooterFirst() {
                         style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
                     />
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     );
 }
 

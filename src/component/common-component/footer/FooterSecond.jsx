@@ -46,7 +46,7 @@ const FooterSecond = () => {
 
   const renderList = (title, items) => (
     <div className="col-xl-2 col-md-3 col-sm-6 d-none d-md-block mt-md-5 mt-lg-4">
-      <h6 className="fw-bold">{title}</h6>
+      <h6 className="fw-bold footer-links-heading">{title}</h6>
       <ul className="list-unstyled mt-3">
         {items.map((item, i) => (
           <li key={i} className={i > 0 ? 'mt-3' : ''}>
@@ -60,13 +60,13 @@ const FooterSecond = () => {
   const renderMobileList = () => (
     <>
       <div className="col-6 d-block d-md-none">
-        <h6 className="fw-bold mt-4">COMPANY</h6>
+        <h6 className="fw-bold mt-4 footer-links-heading">COMPANY</h6>
         <ul className="list-unstyled mt-3">
           {links.company.map((item, i) => (
             <li key={i} className={i > 0 ? 'mt-3' : ''}>{item}</li>
           ))}
         </ul>
-        <h6 className="fw-bold mt-5">SERVICES</h6>
+        <h6 className="fw-bold mt-5 footer-links-heading">SERVICES</h6>
         <ul className="list-unstyled mt-3">
           {links.services.map((item, i) => (
             <li key={i} className="mt-3">
@@ -76,7 +76,7 @@ const FooterSecond = () => {
         </ul>
       </div>
       <div className="col-6 d-block d-md-none">
-        <h6 className="fw-bold mt-4">SERVICE AREAS</h6>
+        <h6 className="fw-bold mt-4 footer-links-heading">SERVICE AREAS</h6>
         <ul className="list-unstyled mt-3">
           {links.serviceAreas.map((item, i) => (
             <li key={i} className={i > 0 ? 'mt-3' : ''}>
@@ -84,7 +84,7 @@ const FooterSecond = () => {
             </li>
           ))}
         </ul>
-        <h6 className="fw-bold mt-5">HOURS</h6>
+        <h6 className="fw-bold mt-5 footer-links-heading">HOURS</h6>
         <ul className="list-unstyled mt-3">
           {links.hours.map((item, i) => (
             <li key={i} className={i > 0 ? 'mt-3' : ''}>
@@ -107,7 +107,7 @@ const FooterSecond = () => {
                   <img src={logo} alt="Green Hammer Concrete Logo" className="footer-card-img" />
                 </div>
                 <div className="col-7 footer-contact-card-content">
-                  <h6 className="fw-bold mb-1">GREEN HAMMER CONCRETE</h6>
+                  <p className="mb-1" style={{ fontWeight: "900" }}>GREEN HAMMER CONCRETE</p>
                   <p className="mb-1">Palm Bay, FL, US</p>
                   <p className="mb-2">greenhammerconcrete@gmail.com</p>
                 </div>

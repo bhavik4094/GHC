@@ -2,7 +2,60 @@ body {
   padding-top: 80px;
   background-color: #000;
   color: #fff;
+  font-family: "inter var";
 }
+
+
+h2 {
+  font-size: 3rem;
+  /*   48px  */
+  line-height: 3rem;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 1.875rem;
+  /*   30px  */
+  line-height: 2.25rem;
+  /*   36px  */
+  font-weight: 900;
+}
+
+h4 {
+  font-size: 1.5rem;
+  /*   24px  */
+  line-height: 2rem;
+  /*   32px  */
+  font-weight: 600;
+}
+
+@media (max-width: 576px) {
+  h2 {
+    font-size: 1.875rem;
+    /*   30px  */
+    line-height: 2.25rem;
+    /*   36px  */
+    font-weight: 900;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    /*   24px  */
+    line-height: 2rem;
+    /*   32px  */
+    font-weight: 900;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    /*   20px  */
+    line-height: 1.75rem;
+    /*   28px  */
+    font-weight: 600;
+  }
+}
+
+
 
 .main-header {
   position: fixed;
@@ -377,12 +430,7 @@ body {
   margin-left: auto;
 }
 
-@media (min-width: 1200px) {
-  .custom-container {
-    max-width: 1140px;
-    width: 100%;
-  }
-}
+
 
 .hero-section {
   background: url("../img/hero-bg.webp") no-repeat center center;
@@ -423,6 +471,13 @@ body {
 .hero-heading {
   font-weight: 900 !important;
   line-height: 72px;
+}
+
+@media (min-width: 1200px) {
+  .custom-container {
+    max-width: 1140px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 1280px) {
@@ -696,7 +751,8 @@ body {
   }
 
   .about-heading {
-    font-size: 2rem;
+    font-size: 30px;
+    line-height: 36px;
     text-wrap: wrap !important;
   }
 
@@ -711,11 +767,73 @@ body {
   }
 
   .about-text {
+    font-size: 16px;
+    line-height: 24px;
     margin-bottom: 2rem;
   }
 
 }
 
+/* ============================
+Get Started CSS Start
+============================ */
+.background-color {
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.get-started {
+  height: 550px;
+}
+
+.get-started .row>* {
+  min-height: 550px;
+}
+
+h2.get-started-text {
+  font-size: 60px;
+  line-height: 60px;
+  /* font-weight: 900; */
+  text-transform: uppercase;
+  letter-spacing: -.025em;
+}
+
+.get-started .col-lg-5.position-relative {
+  right: -3.5rem;
+}
+
+.get-started-right,
+.get-started-right .d-flex {
+  gap: 2rem;
+}
+
+.image-1 {
+  width: 13rem;
+  height: 10rem;
+}
+
+.image-2 {
+  width: 18rem;
+  height: 13rem;
+}
+
+.image-3 {
+  width: 18rem;
+  height: 13rem;
+}
+
+@media (min-width: 1280px) {
+  .getstarted-text2 {
+    width: 715px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  h2.get-started-text {
+    font-size: 36px;
+    line-height: 40px;
+    text-align: center;
+  }
+}
 
 /* ============================
    FAQ SECTION CSS
