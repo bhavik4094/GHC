@@ -4,6 +4,7 @@ import HeroPanel from '../component/homepage/HeroPanel'
 import AboutUs from '../component/homepage/AboutUs'
 import Faq from '../component/homepage/Faq'
 import GetStarted from '../component/homepage/GetStarted'
+import ServiceSection from '../component/homepage/ServiceSection'
 
 
 function HomePage() {
@@ -12,6 +13,7 @@ function HomePage() {
       <HeroSection />
       <HeroPanel />
       <AboutUs />
+      <ServiceSection />
       <GetStarted />
       <Faq />
     </>
