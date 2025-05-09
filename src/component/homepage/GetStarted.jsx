@@ -46,7 +46,7 @@ function GetStarted() {
                 <img src={getStartedBG} alt="Background" className="h-100 w-100 object-fit-cover" />
 
                 <div className="position-absolute top-0 w-100 h-100 background-color d-flex align-items-center">
-                    <div className="container-xl">
+                    <div className="container-xxl">
                         <div className="row">
                             {/* Text + CTA */}
                             <div className="col-xl-7 d-flex flex-column justify-content-center px-3">
