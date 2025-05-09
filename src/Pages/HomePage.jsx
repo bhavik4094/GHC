@@ -5,6 +5,7 @@ import AboutUs from '../component/homepage/AboutUs'
 import Faq from '../component/homepage/Faq'
 import GetStarted from '../component/homepage/GetStarted'
 import ServiceSection from '../component/homepage/ServiceSection'
+import WorkVideo from '../component/homepage/WorkVideo'
 
 
 function HomePage() {
@@ -15,6 +16,7 @@ function HomePage() {
       <AboutUs />
       <ServiceSection />
       <GetStarted />
+      {/* <WorkVideo /> */}
       <Faq />
     </>
   )

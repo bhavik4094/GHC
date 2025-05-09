@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import './ServicesSection.css'; // optional: place styles here if needed
 import ServiceCard from './ServiceCard';
 import cardImg1 from '../../assets/img/service-img-1.webp';
@@ -64,36 +64,44 @@ const services = [
 
 
 const ServicesSection = () => {
+    const [visibleCount, setVisibleCount] = useState(6);
+
+    const handleShowMore = () => {
+        setVisibleCount(services.length);
+    };
     return (
         <section className="services py-5">
-            <div className="container">
-                <div className="title-wrapper pb-5">
-                    <h5 className="light-text px-2 mb-2">What we are best at</h5>
-                    <h3 className="light-text d-flex align-items-center gap-4">
-                        Our Services
+            <div className="container-xl">
+                <div className="title-wrapper pb-3 pb-md-4">
+                    <p className="light-text px-2 mb-2">What we are best at</p>
+                    <h2 className="light-text d-flex align-items-center gap-4 mb-2 mb-xl-3 ">
+                        OUR SERVICES
                         <span className="title-hr"></span>
-                    </h3>
+                    </h2>
                 </div>
 
                 <div className="row list-unstyled mb-0" id="service-cards">
-                    {services.map((service, index) => (
+                    {services.slice(0, visibleCount).map((service, index) => (
                         <ServiceCard key={index} {...service} />
                     ))}
                 </div>
 
-                <div className="text-center mt-4">
-                    <button id="show-more-btn" className="text-light text-uppercase fw-bolder fs-5 bg-transparent border-0">
-                        See More Services
-                        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M7.5 0C8.05228 0 8.5 0.447715 8.5 1V6H13.5C14.0523 6 14.5 6.44772 14.5 7C14.5 7.55228 14.0523 8 13.5 8H8.5V13C8.5 13.5523 8.05228 14 7.5 14C6.94772 14 6.5 13.5523 6.5 13V8H1.5C0.947715 8 0.5 7.55228 0.5 7C0.5 6.44771 0.947715 6 1.5 6L6.5 6V1C6.5 0.447715 6.94772 0 7.5 0Z"
-                                fill="currentColor"
-                            />
-                        </svg>
-                    </button>
-                </div>
+                {visibleCount < services.length && (
+                    <div className="text-center mt-4">
+                        <button
+                            id="show-more-btn"
+                            onClick={handleShowMore}
+                            className="text-light text-uppercase fs-5 bg-transparent border-0"
+                        >
+                            See More Services
+                            <span className="service-plus-icon ms-2 d-inline-flex">
+                                <svg width={15} height={15} viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M7.5 0C8.05228 0 8.5 0.447715 8.5 1V6H13.5C14.0523 6 14.5 6.44772 14.5 7C14.5 7.55228 14.0523 8 13.5 8H8.5V13C8.5 13.5523 8.05228 14 7.5 14C6.94772 14 6.5 13.5523 6.5 13V8H1.5C0.947715 8 0.5 7.55228 0.5 7C0.5 6.44771 0.947715 6 1.5 6L6.5 6V1C6.5 0.447715 6.94772 0 7.5 0Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
     );
