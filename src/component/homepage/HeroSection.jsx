@@ -21,7 +21,7 @@ const HeroSection = () => {
     return (
         <section className="hero-section position-relative text-white">
             <div className="hero-bg-overlay">
-                <div className="container-xl">
+                <div className="container-xxl">
                     <div className="row hero-row">
                         {/* Left Text Content */}
                         <div className="col-xl-6 col-lg-8 col-md-10 col-sm-12 px-3 text-content">

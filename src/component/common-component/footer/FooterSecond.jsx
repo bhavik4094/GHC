@@ -98,7 +98,7 @@ const FooterSecond = () => {
 
   return (
     <footer className="bg-black text-white">
-      <div className="container-xl second-footer-continer">
+      <div className="container-xxl second-footer-continer">
         <div className="row g-4">
           <div className="col-xl-4 col-12">
             <div className="bg-white text-black py-4 px-3 m-0">

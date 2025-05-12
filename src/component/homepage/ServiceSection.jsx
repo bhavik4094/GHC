@@ -70,10 +70,10 @@ const ServicesSection = () => {
         setVisibleCount(services.length);
     };
     return (
-        <section className="services py-5">
-            <div className="container-xxl">
+        <section className="services">
+            <div className="container-xxl service-container py-5">
                 <div className="title-wrapper pb-3 pb-md-4">
-                    <p className="light-text px-2 mb-2">What we are best at</p>
+                    <p className="light-text px-2 mb-2 heading-upper-text">What we are best at</p>
                     <h2 className="light-text d-flex align-items-center gap-4 mb-2 mb-xl-3 ">
                         OUR SERVICES
                         <span className="title-hr"></span>

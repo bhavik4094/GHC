@@ -6,6 +6,7 @@ import Faq from '../component/homepage/Faq'
 import GetStarted from '../component/homepage/GetStarted'
 import ServiceSection from '../component/homepage/ServiceSection'
 import WorkVideo from '../component/homepage/WorkVideo'
+import GetAQuoteSection from '../component/homepage/GetQuote'
 
 
 function HomePage() {
@@ -16,7 +17,8 @@ function HomePage() {
       <AboutUs />
       <ServiceSection />
       <GetStarted />
-      {/* <WorkVideo /> */}
+      <WorkVideo />
+      <GetAQuoteSection />
       <Faq />
     </>
   )

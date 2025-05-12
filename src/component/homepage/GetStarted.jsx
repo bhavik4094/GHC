@@ -4,6 +4,7 @@ import GetStartedImg1 from '../../assets/img/getstarted-img2.webp';
 import GetStartedImg2 from '../../assets/img/getstarted-img3.webp';
 import GetStartedImg3 from '../../assets/img/getstarted-img4.webp';
 import pageteartop from '../../assets/img/pagetear-2.webp';
+import pagetear from '../../assets/img/footer-pagetear-img.webp';
 
 // Optional: Button and Image item subcomponents
 const CTAButton = ({ text, className }) => (
@@ -74,6 +75,16 @@ function GetStarted() {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                {/* Page tear at the bottom */}
+                <div className="page-tear position-absolute bottom-0 start-0 w-100">
+                    <img
+                        src={pagetear}
+                        alt="Page tear"
+                        className="w-100 d-block"
+                        style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
+                    />
                 </div>
             </section>
         </div>

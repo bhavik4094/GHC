@@ -48,7 +48,7 @@ function Faq() {
 
     return (
         <section className="faq-section">
-            <div className="container-xl faq-component-container">
+            <div className="container-xxl faq-component-container">
                 <div className="row">
                     {/* FAQ Content */}
                     <div className="col-lg-8 col-sm-7 pe-sm-4 pe-lg-5">
