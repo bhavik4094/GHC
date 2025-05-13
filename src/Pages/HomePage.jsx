@@ -8,6 +8,8 @@ import ServiceSection from '../component/homepage/ServiceSection'
 import WorkVideo from '../component/homepage/WorkVideo'
 import GetAQuoteSection from '../component/homepage/GetQuote'
 import MapArea from '../component/homepage/MapArea'
+import ReviewSection from '../component/homepage/ReviewSection'
+import LeaveAReview from '../component/homepage/LeaveAReview'
 
 
 function HomePage() {
@@ -20,6 +22,8 @@ function HomePage() {
       <GetStarted />
       <GetAQuoteSection />
       <WorkVideo />
+      {/* <ReviewSection /> */}
+      <LeaveAReview />
       <Faq />
       <MapArea />
     </>
