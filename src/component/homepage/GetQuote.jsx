@@ -3,13 +3,13 @@ import React from 'react'
 function GetQuote() {
     return (
         <section className="quote-section">
-            <div className="container-xxl py-5 ">
-                <div className="title-wrapper pb-5">
+            <div className="container-xxl py-3 py-md-5 px-3 ">
+                <div className="title-wrapper pb-3 ">
                     <h2 className="text-light d-flex align-items-center gap-4">
                         GET A QUOTE
                         <span className="title-hr"></span>
                     </h2>
-                    <p className="text-light px-2 mb-2 heading-bottom-text">
+                    <p className="text-light px-2 mb-3 heading-bottom-text">
                         Receiving a quote is easy and only takes three simple steps
                     </p>
                 </div>

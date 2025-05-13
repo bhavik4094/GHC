@@ -7,6 +7,7 @@ import GetStarted from '../component/homepage/GetStarted'
 import ServiceSection from '../component/homepage/ServiceSection'
 import WorkVideo from '../component/homepage/WorkVideo'
 import GetAQuoteSection from '../component/homepage/GetQuote'
+import MapArea from '../component/homepage/MapArea'
 
 
 function HomePage() {
@@ -17,9 +18,10 @@ function HomePage() {
       <AboutUs />
       <ServiceSection />
       <GetStarted />
-      <WorkVideo />
       <GetAQuoteSection />
+      <WorkVideo />
       <Faq />
+      <MapArea />
     </>
   )
 }

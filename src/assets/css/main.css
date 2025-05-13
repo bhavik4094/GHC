@@ -1118,7 +1118,7 @@ Get A Quote Section CSS Start
 .quote-section {
   background-color: #000;
   color: white;
-  padding: 3rem 0;
+  /* padding: 3rem 0; */
 }
 
 .the-outer-one {
@@ -1233,15 +1233,6 @@ svg {
   .step-box-1-btn {
     padding: 12px 20px;
   }
-}
-
-
-@media (max-width: 576px) {
-
-  /* General Spacing */
-  .quote-section {
-    padding: 1rem 0;
-  }
 
   .hero-bg-overlay {
     padding: 4rem 0;
@@ -1309,7 +1300,6 @@ svg {
   }
 
   /* SVGs for Quote Section */
-
   .qoute-svg-second {
     margin: -112px;
     /* height: 291px !important; */
@@ -1319,8 +1309,6 @@ svg {
     margin: -112px;
     /* height: 291px !important; */
   }
-
-
 
   .qoute-svg-2-top {
     margin: -106px;
@@ -1332,10 +1320,91 @@ svg {
     height: 243px !important;
   }
 
-  /* List Styling */
   li.location-list {
     font-weight: 600 !important;
     font-size: 1.2rem !important;
     line-height: 2rem !important;
+  }
+}
+
+/* ============================
+MAP / Location Section CSS Start
+============================ */
+/* location */
+.location-wrapper {
+  display: flex;
+  position: relative;
+  height: 100%;
+}
+
+.ratio-16x9 {
+  --bs-aspect-ratio: 800px;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.floating-panel {
+  position: absolute;
+  top: 100px;
+  right: 0px;
+  background-color: #000;
+  color: #fff;
+  padding: 48px 32px;
+  max-width: 500px;
+  height: 600px;
+  width: 100%;
+  z-index: 10;
+  border-radius: 2px;
+}
+
+.location-section {
+  position: relative;
+  height: auto;
+  min-height: 800px;
+}
+
+
+@media (max-width: 768px) {
+  .location-section {
+    min-height: 400px;
+  }
+
+  .ratio-16x9 {
+    --bs-aspect-ratio: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .location-wrapper {
+    flex-direction: column;
+    position: static;
+    height: auto;
+  }
+
+  .floating-panel {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0;
+    max-height: fit-content;
+    height: 100%;
+    padding: 32px 16px;
+  }
+
+  .ratio-16x9 {
+    height: 400px;
+  }
+
+  .floating-panel h2 {
+    line-height: 40px;
+  }
+
+  .location-area {
+    font-size: 18px;
+    line-height: 28px;
   }
 }
