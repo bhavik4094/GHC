@@ -22,7 +22,7 @@ function HomePage() {
       <GetStarted />
       <GetAQuoteSection />
       <WorkVideo />
-      {/* <ReviewSection /> */}
+      <ReviewSection />
       <LeaveAReview />
       <Faq />
       <MapArea />

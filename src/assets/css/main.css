@@ -1499,3 +1499,135 @@ MAP / Location Section CSS Start
   }
 
 }
+
+/* ============================
+  Review/Testimonial Section CSS
+============================ */
+/* REVIEWS START */
+.review-slider-section {
+  background-image: url(https://products.codersh.com/greenhammerconcrete/wp-content/uploads/2025/05/hero-img1.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 7rem 0;
+  position: relative;
+}
+
+.review-slider-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 0;
+}
+
+.review-btn {
+  max-width: 240px;
+  width: 100%;
+  height: 58px;
+  background-color: #fff;
+  color: #000;
+  padding: 16px 0px;
+  border-radius: .125rem;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 24px;
+  transition: 0.15s ease;
+}
+
+a.review-btn:hover {
+  box-shadow: 0px 0px 0px 3px #ffffff;
+}
+
+.review-slider-section>.container {
+  position: relative;
+  z-index: 1;
+  /* overflow-x: hidden; */
+}
+
+
+
+.see-more {
+  cursor: pointer;
+  color: #64aa0e;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
+/* custom css  */
+.review-setion-heading {
+  padding: 12px 32px 40px;
+  margin-bottom: 0;
+}
+
+.review-subheading-text {
+  padding: 2px 32px;
+}
+
+.review-subheading-text span {
+  padding: 0px 20px;
+}
+
+/* REVIEWS END */
+
+.review-card {
+  padding: 32px 24px;
+  /* scroll-snap-align: center; */
+  max-width: 389px;
+  width: 100%;
+  height: 460px;
+}
+
+.review-msg {
+  color: rgb(17, 24, 39) !important;
+  font-size: 18px;
+  font-weight: 500 !important;
+  line-height: 28px;
+}
+
+.review-name {
+  color: rgb(17, 24, 39) !important;
+  font-size: 16px;
+  font-weight: 500 !important;
+  line-height: 24px;
+}
+
+.review-category {
+  color: rgb(0, 0, 0) !important;
+  font-size: 18px;
+  font-weight: 900 !important;
+  line-height: 28px;
+  background-color: #d1d5db;
+  padding: 4px 12px;
+  margin-top: 4px;
+  text-wrap: wrap;
+  text-align: left;
+
+}
+
+.badge {
+  --bs-badge-border-radius: none;
+}
+
+.button-next,
+.button-previous {
+  border-radius: none !important;
+  background-color: #64AA0E;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+
+.button-next:hover,
+.button-previous:hover {
+  background-color: #64AA0E;
+  color: white;
+}
