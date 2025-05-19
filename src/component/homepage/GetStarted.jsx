@@ -20,10 +20,7 @@ const ImageBox = ({ src, alt, className }) => (
 );
 
 function GetStarted() {
-    const ctaButtons = [
-        { text: 'GET A FREE QUOTE', className: 'btn btn-green flex-grow-1 flex-md-grow-0' },
-        { text: 'CALL US', className: 'btn btn-outline-green flex-grow-1 flex-md-grow-0' },
-    ];
+
 
     const sideImages = [
         { src: GetStartedImg1, alt: 'Consultation image 1', className: 'image-1' },
@@ -56,9 +53,8 @@ function GetStarted() {
                                     Book an appointment today.
                                 </h2>
                                 <div className="d-flex gap-3 mt-4 flex-column flex-sm-row">
-                                    {ctaButtons.map((btn, i) => (
-                                        <CTAButton key={i} text={btn.text} className={btn.className} />
-                                    ))}
+                                    <a href="#" class="quote-button">GET A FREE QUOTE</a>
+                                    <a href="#" class="call-button">CALL US</a>
                                 </div>
                             </div>
 

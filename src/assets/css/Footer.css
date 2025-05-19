@@ -67,49 +67,174 @@ h4 {
 /* ============================
      Button Styles
   ============================ */
-.btn-green,
-.btn-outline-green {
-  border-radius: 0.125rem;
+/* Green Button Styles */
+.quote-button {
+  display: inline-block;
+  position: relative;
+  background-color: #64aa0e;
+  /* Bright green color */
+  color: white;
   font-size: 18px;
-  font-weight: bold;
-  font-weight: 900;
   line-height: 28px;
-  padding: 0.75rem 1.5rem;
+  font-weight: 900;
+  padding: 16px 40px !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0.125rem;
   transition: all 0.3s ease;
+  box-sizing: border-box;
+  /* width: 330px; */
+  text-align: center;
+  height: fit-content;
+  letter-spacing: -.5px;
 }
 
-.btn-green {
-  background-color: var(--color-green);
-  color: var(--color-white);
-  border: 2px solid var(--color-green);
-
+.quote-button::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 3px solid white;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-.btn-outline-green {
-  background-color: var(--color-white);
-  border: 2px solid var(--color-green);
-  color: var(--color-green);
+.quote-button::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 3px solid #64aa0e;
+  border-radius: 9px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-.btn-green:hover {
-  background-color: var(--color-green);
-  color: var(--color-white);
-  border: 2px solid var(--color-white);
-
+.quote-button:hover::before,
+.quote-button:hover::after,
+.book-button:hover::after,
+.call-button:hover::after {
+  opacity: 1;
 }
 
-.btn-outline-green:hover {
-  background-color: var(--color-white);
-  border: 2px solid var(--color-green);
-  color: var(--color-green);
+/* White Button Styles */
+.call-button {
+  display: inline-block;
+  position: relative;
+  background-color: white;
+  color: #64aa0e;
+  /* Green text color */
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 900;
+  padding: 15px 39px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #64aa0e;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  /* width: 330px; */
+  text-align: center;
+  height: fit-content;
+  letter-spacing: -.5px;
+}
+
+.call-button:hover {
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 3px white;
+}
+
+.call-button::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 3px solid #64aa0e;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* book butoon style */
+.book-button {
+  display: inline-block;
+  position: relative;
+  background-color: white;
+  color: #000000;
+  /* Green text color */
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 900;
+  padding: 8px 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  /* width: 330px; */
+  text-align: center;
+  height: fit-content;
+  letter-spacing: -.1px;
+}
+
+.book-button:hover {
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px white;
+}
+
+.book-button::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid #000000;
+  border-radius: 7px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 @media (max-width: 576px) {
+  .buttons-container {
+    flex-direction: column;
+  }
 
-  .btn-green,
-  .btn-outline-green {
+  .quote-button,
+  .call-button {
+    max-width: 100vw;
+    width: 100vw;
     font-size: 16px;
     line-height: 24px;
+    padding: 12px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+  }
+
+  .book-button {
+    /* max-width: 100vw; */
+    /* width: 100vw; */
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px;
   }
 }
 

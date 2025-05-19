@@ -24,12 +24,8 @@ function FooterFirst() {
                         <h2 className="mb-0">BOOK AN APPOINTMENT TODAY.</h2>
                     </div>
                     <div className="cta-btns d-flex flex-column flex-md-row justify-content-center gap-3 pt-5">
-                        <button className="btn btn-green flex-grow-1 flex-md-grow-0 cta-content-btns">
-                            GET A FREE QUOTE
-                        </button>
-                        <button className="btn btn-outline-green flex-grow-1 flex-md-grow-0 cta-content-btns">
-                            CALL US
-                        </button>
+                        <a href="#" class="quote-button">GET A FREE QUOTE</a>
+                        <a href="#" class="call-button">CALL US</a>
                     </div>
                 </div>
 

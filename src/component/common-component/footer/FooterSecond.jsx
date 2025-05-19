@@ -114,7 +114,7 @@ const FooterSecond = () => {
               </div>
               <div className="d-flex justify-content-between align-items-center mt-3 footer-contact-card-btns p-3">
                 <div className="w-50 me-2 footer-contact-card-btn1">CONTACT US</div>
-                <button className="btn btn-outline-green w-50 footer-contact-card-btn2 py-2">BOOK NOW</button>
+                <a href="#" class="book-button">BOOK NOW</a>
               </div>
               <div className="d-flex">
                 {[googleLogo, facebookLogo, nextdoorLogo].map((src, i) => (

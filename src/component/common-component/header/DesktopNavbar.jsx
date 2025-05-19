@@ -75,8 +75,8 @@ function DesktopMenu({
         <li className="nav-item"><Link className="nav-link" to="/videos">VIDEOS</Link></li>
       </ul>
       <div className="d-flex">
-        <button className="btn btn-success me-2">SEND US A TEXT</button>
-        <button className="btn btn-outline-success">CALL NOW</button>
+        <a href="#" class="quote-button">SEND US A TEXT</a>
+        <a href="#" class="call-button">CALL NOW</a>
       </div>
     </>
   );

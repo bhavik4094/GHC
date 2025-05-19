@@ -29,16 +29,8 @@ const HeroSection = () => {
                             <p className="lead mb-0">{heroContent.description}</p>
 
                             <div className="d-flex flex-column flex-md-row gap-3 mt-3 mt-md-5">
-                                {heroContent.buttons.map((btn, idx) => (
-                                    <a
-                                        key={idx}
-                                        href={btn.action}
-                                        className={`btn btn-${btn.variant} hero-buttons w-100 w-md-auto`}
-                                        style={{ fontSize: "16px", lineHeight: "24px" }}
-                                    >
-                                        {btn.text}
-                                    </a>
-                                ))}
+                                <a href="#" class="quote-button">GET A FREE QUOTE</a>
+                                <a href="#" class="call-button">CALL US</a>
                             </div>
                         </div>
 
