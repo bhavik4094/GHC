@@ -70,9 +70,10 @@ function DesktopMenu({
               </svg>
             </span>
             {desktopPhotosOpen && (
-              <ul className="dropdown-menu show">
-                <li><Link className="dropdown-item" to="/photos/residential">Residential</Link></li>
-                <li><Link className="dropdown-item" to="/photos/commercial">Commercial</Link></li>
+              <ul className="dropdown-menu show dropdown-menu-second">
+                {/* <li><Link className="dropdown-item" to="/photos/residential">Residential</Link></li>
+                <li><Link className="dropdown-item" to="/photos/commercial">Commercial</Link></li> */}
+                <li><Link className="dropdown-item desktop-dropdown-item" to="/photos/allphotos">ALL PHOTOS</Link></li>
               </ul>
             )}
           </li>
