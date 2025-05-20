@@ -234,31 +234,88 @@ h4 {
 /* ============================
      Header Navbar Styles
   ============================ */
+.header-buttons {
+  gap: 1rem;
+}
+
+.header-buttons a {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.header-buttons .quote-button {
+  padding: 13px 26px !important;
+}
+
+.header-buttons .call-button {
+  padding: 12px 23.5px !important;
+}
+
 .main-header {
   position: fixed;
   width: 100%;
   top: 0;
   background: black;
-  padding: 15px 0;
+  /* padding: 15px 0; */
+  height: 175px;
   transition: all 0.3s ease-in-out;
   z-index: 1000;
   border-bottom: 1px solid #8AC600;
 }
 
+@media (max-width: 1200px) {
+  .main-header {
+    height: 95px;
+  }
+
+  .navbar-brand img {
+
+    max-height: 94px !important;
+    max-width: 126px !important;
+
+
+  }
+}
+
+.navbar-container {
+  height: 100%;
+  padding: 0 40px;
+}
+
+@media (min-width: 576px) and (max-width: 1024px) {
+  .navbar-container {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-container {
+    padding: 0 16px;
+
+  }
+}
+
 .main-header.scrolled {
-  padding: 5px 0;
+  height: 95px;
+  /* padding: 5px 0; */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .navbar-nav .nav-link {
   color: white;
-  font-weight: 600;
-  margin-right: 15px;
+  font-weight: 700;
+  /* margin-right: 15px; */
   cursor: pointer;
+  padding: 14px 4px 14px 6px !important;
 }
 
 .nav-item.dropdown {
   position: relative;
+}
+
+.dropdown-toggle::after {
+  display: none;
 }
 
 .nav-item.dropdown .dropdown-menu {
@@ -311,19 +368,27 @@ h4 {
   transition: 0.3s all ease-in-out;
   display: flex;
   align-items: center;
+  padding: 0px;
+  margin: 0px;
 }
 
 .navbar-brand img {
   height: 100%;
-  padding-left: 30px;
-  max-height: 300px;
-  transition: height 0.3s ease-in-out;
+  /* padding-left: 30px; */
+  max-height: 120px;
+  max-width: 160px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  min-width: 126px;
+  min-height: 94px;
 
 }
 
 .main-header.scrolled .navbar-brand img {
-  height: 100px;
-  padding-left: 0px;
+  max-height: 94px;
+  max-width: 126px;
+  transition: all 0.3s ease-in-out;
+  /* padding-left: 0px; */
 }
 
 
@@ -334,7 +399,19 @@ h4 {
 }
 
 /* -------------------- MOBILE STYLES -------------------- */
-@media (max-width: 991.98px) {
+.menu-name {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  text-align: start;
+  height: 100%;
+}
+
+.has-submenu span {
+  color: #000;
+}
+
+@media (max-width: 1200px) {
   .menu-toggle {
     font-size: 28px;
     background: none;
@@ -343,17 +420,6 @@ h4 {
     z-index: 2;
   }
 
-  .main-header.scrolled .navbar-brand img {
-    height: 80px;
-    padding-left: 0px;
-  }
-
-  .navbar-brand img {
-    height: 80px;
-    padding-left: 0px;
-
-
-  }
 
   .main-header {
     padding: 0px !important;
@@ -392,6 +458,7 @@ h4 {
     /* Enable vertical scroll */
     padding-right: 10px;
     /* Optional: avoid scroll overlap */
+
   }
 
   .mobile-nav::-webkit-scrollbar {
