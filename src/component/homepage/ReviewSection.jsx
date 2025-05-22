@@ -129,9 +129,8 @@ const ReviewCard = ({ review }) => {
         </div>
         <div>
           <p
-            className={`text-muted review-msg mb-0 pt-2 ${
-              expanded ? "expanded" : "clamped"
-            }`}
+            className={`text-muted review-msg mb-0 pt-2 ${expanded ? "expanded" : "clamped"
+              }`}
             ref={textRef}
           >
             {review.text}
@@ -211,7 +210,7 @@ function ReviewSection() {
         </div>
         <div
           className="position-relative d-flex justify-content-center review-slider-container"
-          // style={{ minHeight: "502px" }}
+        // style={{ minHeight: "502px" }}
         >
           <Swiper
             modules={[Navigation, Autoplay]} // Use Autoplay module
@@ -301,7 +300,7 @@ function ReviewSection() {
         {/* mobile buttons ( are not properly working) */}
         <div className="d-flex justify-content-center align-item-center gpa-4 mt-3  d-md-none gap-4">
           <button
-            ref={prevRef}
+            onClick={() => swiperInstance?.slidePrev()}
             className="btn  z-3 button-previous d-flex d-md-none"
             aria-label="Previous review"
             style={{
@@ -331,9 +330,9 @@ function ReviewSection() {
               />
             </svg>
           </button>
-          {/* Next button */}
+
           <button
-            ref={nextRef}
+            onClick={() => swiperInstance?.slideNext()}
             className="btn z-3 button-next d-flex d-md-none"
             aria-label="Next review"
             style={{
