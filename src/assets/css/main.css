@@ -1051,7 +1051,7 @@ Get Started CSS Start
   height: 550px;
 }
 
-.get-started .row > * {
+.get-started .row>* {
   min-height: 550px;
 }
 
@@ -1318,6 +1318,15 @@ video Section CSS Start
 #show-more-btn2:hover {
   color: #4f860b !important;
 }
+
+#show-more-btn3 {
+  line-height: 28px;
+  font-weight: 900;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  font-size: 18px !important;
+}
+
 
 /* Fixed heights only for laptop (1024px) and larger */
 @media (min-width: 768px) {
@@ -1672,8 +1681,15 @@ MAP / Location Section CSS Start
    Leave A Review Box CSS
 ============================ */
 
+.leave-us-review-section {
+  position: relative;
+  width: 100%;
+  padding: 80px;
+}
+
 .leave-us-review {
   padding: 40px 32px;
+  top: -70%;
 }
 
 .review-box {
@@ -1684,7 +1700,7 @@ MAP / Location Section CSS Start
   border-radius: 0.125rem;
   text-align: center;
   max-width: 614px;
-  /* margin: 40px auto; */
+  margin: 0px auto;
 }
 
 .stars-container {
@@ -1735,6 +1751,7 @@ MAP / Location Section CSS Start
   opacity: 0.9;
 }
 
+
 @media (max-width: 768px) {
   .review-buttons {
     flex-direction: column !important;
@@ -1744,6 +1761,14 @@ MAP / Location Section CSS Start
   .review-button span {
     width: 100% !important;
     padding: 0 24px;
+  }
+
+  .leave-us-review {
+    top: -50%;
+  }
+
+  .leave-us-review-section {
+    padding: 110px;
   }
 }
 
@@ -1755,6 +1780,16 @@ MAP / Location Section CSS Start
   .review-box {
     padding: 24px;
     margin: 0 32px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .review-slider-section {
+    min-height: 868px;
+  }
+
+  .leave-us-review {
+    top: -80%;
   }
 }
 
@@ -1802,7 +1837,7 @@ a.review-btn:hover {
   box-shadow: 0px 0px 0px 3px #ffffff;
 }
 
-.review-slider-section > .container-xxl {
+.review-slider-section>.container-xxl {
   position: relative;
   z-index: 1;
   padding: 7rem 0;
@@ -1928,6 +1963,7 @@ a.review-btn:hover {
 .review-card-body {
   justify-content: space-between !important;
 }
+
 .review-slider-container {
   padding: 0px 3rem;
 }
@@ -1941,5 +1977,11 @@ a.review-btn:hover {
 @media (max-width: 576px) {
   .review-slider-container {
     padding: 0px 1rem;
+  }
+
+  .reviewcard-star,
+  .reviewcard-quote {
+    width: 32px;
+    height: auto;
   }
 }

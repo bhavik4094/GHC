@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import { useNavigate } from 'react-router-dom';
 import "swiper/css";
 import "swiper/css/navigation";
 import pagetear from "../../assets/img/footer-pagetear-img.webp";
@@ -69,6 +70,7 @@ const StarIcon = () => (
     height="40"
     viewBox="0 0 40 40"
     fill="none"
+    className="reviewcard-star"
   >
     <path
       d="M19.0489 2.92705C19.3483 2.00574 20.6517 2.00574 20.9511 2.92705L24.2658 13.1287C24.3996 13.5407 24.7836 13.8197 25.2168 13.8197H35.9434C36.9122 13.8197 37.3149 15.0593 36.5312 15.6287L27.8532 21.9336C27.5027 22.1883 27.3561 22.6396 27.4899 23.0517L30.8046 33.2533C31.104 34.1746 30.0495 34.9407 29.2658 34.3713L20.5878 28.0664C20.2373 27.8117 19.7627 27.8117 19.4122 28.0664L10.7342 34.3713C9.95048 34.9407 8.896 34.1746 9.19535 33.2533L12.5101 23.0517C12.6439 22.6396 12.4973 22.1883 12.1468 21.9336L3.46877 15.6287C2.68505 15.0593 3.08783 13.8197 4.05655 13.8197H14.7832C15.2164 13.8197 15.6004 13.5407 15.7342 13.1287L19.0489 2.92705Z"
@@ -85,6 +87,7 @@ const QuoteIcon = () => (
     fill="none"
     width="40"
     height="40"
+    className="reviewcard-quote"
   >
     <path
       d="M29.6315 37.6207C35.7257 37.6207 40.666 32.6803 40.666 26.5862V5.20686C40.666 2.54066 38.5046 0.379275 35.8384 0.379275L28.2522 0.379274C25.586 0.379274 23.4246 2.54066 23.4246 5.20686L23.4246 15.5517C23.4246 18.2179 25.586 20.3793 28.2522 20.3793H33.7695C34.5312 20.3793 35.1488 20.9968 35.1488 21.7586V26.5862C35.1488 29.6333 32.6786 32.1034 29.6315 32.1034H25.8384C25.0767 32.1034 24.4591 32.721 24.4591 33.4827V36.2413C24.4591 37.0031 25.0767 37.6207 25.8384 37.6207H29.6315Z"
@@ -158,6 +161,11 @@ const ReviewCard = ({ review }) => {
 // ReviewSection.jsx
 
 function ReviewSection() {
+  const navigate = useNavigate();
+
+  const goToReviews = () => {
+    navigate('/reviewsPage');
+  };
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -361,6 +369,33 @@ function ReviewSection() {
                 fill="white"
               />
             </svg>
+          </button>
+        </div>
+
+        <div className="text-center my-5 d-block d-md-none">
+          <button
+            id="show-more-btn3"
+            onClick={goToReviews}
+            className="text-light text-uppercase fs-5 bg-transparent border-0"
+          >
+            See All Reviews
+            <span className="service-plus-icon ms-2 d-inline-flex">
+              <svg
+                width="17"
+                height="15"
+                viewBox="0 0 17 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.1667 1.1665L16 6.99984M16 6.99984L10.1667 12.8332M16 6.99984L1 6.99984"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
           </button>
         </div>
       </div>

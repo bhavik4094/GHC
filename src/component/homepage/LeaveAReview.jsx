@@ -46,9 +46,9 @@ const platforms = [
 
 const LeaveAReview = ({ stars = 5, platformsToShow = platforms }) => {
     return (
-        <section className="bg-dark text-light text-center">
-            <div className="leave-us-review container-xxl">
-                <div className="review-box border border-light mx-auto" >
+        <section className="bg-black text-light text-center leave-us-review-section" style={{}}>
+            <div className="leave-us-review container-xxl mx-auto" style={{ position: "absolute", left: 0, right: 0, zIndex: "3" }}>
+                <div className="review-box border border-light" >
                     <h3 className="mb-0 fw-bold">LEAVE US A REVIEW</h3>
 
                     <div className="stars-container d-flex justify-content-center gap-2 mt-2">
