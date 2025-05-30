@@ -50,7 +50,11 @@ const FooterSecond = () => {
       <ul className="list-unstyled mt-3">
         {items.map((item, i) => (
           <li key={i} className={i > 0 ? 'mt-3' : ''}>
-            <a className="secondfooter-links" href="#">{item}</a>
+            {title === 'HOURS' ? (
+              <span className="secondfooter-links-text">{item}</span>
+            ) : (
+              <a className="secondfooter-links" href="#">{item}</a>
+            )}
           </li>
         ))}
       </ul>
@@ -88,7 +92,7 @@ const FooterSecond = () => {
         <ul className="list-unstyled mt-3">
           {links.hours.map((item, i) => (
             <li key={i} className={i > 0 ? 'mt-3' : ''}>
-              <a className="secondfooter-links" href="#">{item}</a>
+              <span className="secondfooter-links-text">{item}</span>
             </li>
           ))}
         </ul>

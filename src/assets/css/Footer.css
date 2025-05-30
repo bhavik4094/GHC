@@ -324,6 +324,13 @@ Second Footer CSS
   line-height: 24px !important;
 }
 
+.secondfooter-links-text {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  line-height: 24px !important;
+}
+
 .secondfooter-links:hover {
   color: rgba(209, 213, 219, 1);
 }
