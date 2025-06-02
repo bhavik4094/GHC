@@ -12,7 +12,7 @@ function TeamBody({ teamData }) {
                     <img src={teamGroupPic} alt="team group photo" className='team-group-pic img-fluid' style={{ borderRadius: ".5rem" }} />
                 </div>
                 <div className='team-card-container w-100'>
-                    <ul className="team-card-list p-0 row  mb-0" style={{ maxWidth: "1024px", width: "100%", listStyleType: "none" }}>
+                    <div className="team-card-list p-0 row  mb-0" style={{ maxWidth: "1024px", width: "100%", listStyleType: "none" }}>
                         {teamData.map((item, index) => (
                             <TeamCard
                                 key={index}
@@ -22,7 +22,7 @@ function TeamBody({ teamData }) {
                                 team_member_description={item.bio}
                             />
                         ))}
-                    </ul>
+                    </div>
                 </div>
             </div>
         </section>
