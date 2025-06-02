@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-const VideoHero = ({ hero_title, hero_description }) => {
+function TeamHero({ hero_title, hero_description }) {
     return (
         <section className="video-banner-section">
             {/* Background Image */}
@@ -14,7 +14,7 @@ const VideoHero = ({ hero_title, hero_description }) => {
             <div className="video-hero-overlay text-center">
                 <div className="container d-flex justify-content-center align-items-center flex-column">
                     <h2 className="text-uppercase mb-0" style={{ maxWidth: "576px" }}>{hero_title}</h2>
-                    <span className="hero-description" style={{ maxWidth: "576px" }}>
+                    <span className="hero-description2" style={{ maxWidth: "576px" }}>
                         {hero_description}
                     </span>
                 </div>
@@ -27,7 +27,7 @@ const VideoHero = ({ hero_title, hero_description }) => {
                 className="hero-bottom-vector"
             />
         </section>
-    );
-};
+    )
+}
 
-export default VideoHero;
+export default TeamHero

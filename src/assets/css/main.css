@@ -2016,7 +2016,7 @@ a.review-btn:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center;
   z-index: -1;
 }
 
@@ -2037,6 +2037,17 @@ a.review-btn:hover {
   display: block;
   margin-top: 24px;
   text-transform: capitalize;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.hero-description2 {
+  display: block;
+  margin-top: 24px;
+  text-transform: capitalize;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 300;
 }
 
 .hero-bottom-vector {
@@ -2084,4 +2095,45 @@ a.review-btn:hover {
   .video-card-spacing {
     margin-top: 4rem;
   }
+}
+
+/* ============================
+  TEAM PAGE CSS
+============================ */
+.team-group-pic {
+  max-width: 896px;
+  width: 100%;
+  height: auto;
+}
+
+.team-group-pic-div {
+  width: fit-content;
+  margin: 48px 16px 16px;
+}
+
+.team-card-container {
+  margin: 64px 32px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-card-name,
+.team-card-designation,
+.team-card-bio {
+  font-size: 18px;
+  line-height: 24px;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.team-card-name {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.team-card-designation {
+  color: #64aa0e;
+  font-weight: 500;
+  text-transform: capitalize;
 }

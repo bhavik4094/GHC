@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import HomePage from "../Pages/HomePage";
 import VideoPage from "../Pages/VideoPage";
+import TeamPage from "../Pages/TeamPage";
 
 
 export const router = createBrowserRouter([
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: "/videos",
         element: <VideoPage />,
+      },
+      {
+        path: "/team",
+        element: <TeamPage />,
       },
 
     ],
