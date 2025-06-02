@@ -9,10 +9,10 @@ function TeamBody({ teamData }) {
         <section className='teampage-body-section' style={{ backgroundColor: "#fff" }}>
             <div className='container pt-3 px-0 d-flex justify-content-center align-items-center flex-column' style={{ maxWidth: "1280px" }}>
                 <div className="team-group-pic-div mb-4">
-                    <img src={teamGroupPic} alt="team group photo" className='team-group-pic img-fluid' />
+                    <img src={teamGroupPic} alt="team group photo" className='team-group-pic img-fluid' style={{ borderRadius: ".5rem" }} />
                 </div>
                 <div className='team-card-container w-100'>
-                    <ul className="team-card-list p-0 row g-4 mb-0" style={{ maxWidth: "1024px", listStyleType: "none" }}>
+                    <ul className="team-card-list p-0 row  mb-0" style={{ maxWidth: "1024px", width: "100%", listStyleType: "none" }}>
                         {teamData.map((item, index) => (
                             <TeamCard
                                 key={index}

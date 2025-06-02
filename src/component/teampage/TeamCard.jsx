@@ -3,16 +3,15 @@ import React from 'react';
 
 const TeamCard = ({ team_member_img, team_member_name, team_member_designation, team_member_description }) => {
     return (
-        <li className="col-12 col-sm-6 col-lg-4 d-flex justify-content-center align-items-center flex-column text-center team-member">
+        <li className="col-12 col-sm-6 col-md-4 col-lg-4 d-flex justify-content-center align-items-center flex-column text-center team-member-li">
             <img
                 src={team_member_img}
                 alt={team_member_name}
-                className="img-fluid  mb-3"
-                width="225"
-                height="225"
+                className="img-fluid team-card-img mb-3"
+
                 loading='lazy'
                 style={{
-                    borderRadius: "50%", objectFit: "cover", height: "225px", width: "225px", objectPosition: "center"
+                    borderRadius: "50%", objectFit: "cover", maxHeight: "225px", maxWidth: "225px", objectPosition: "center"
                 }}
             />
             <h3 className='team-card-name '>{team_member_name}</h3>
