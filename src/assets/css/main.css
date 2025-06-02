@@ -769,8 +769,17 @@ h4 {
     font-size: 60px;
   }
 
+  /* .hero-row {
+    height: 92vh;
+  } */
+}
+
+@media (max-width: 1200px) {
+
+  .hero-section,
   .hero-row {
-    /* height: 92vh; */
+    height: 100% !important;
+    min-height: calc(100vh - 95px);
   }
 }
 
@@ -1510,9 +1519,9 @@ svg {
     padding: 12px 20px;
   }
 
-  .hero-bg-overlay {
+  /* .hero-bg-overlay {
     padding: 4rem 0;
-  }
+  } */
 
   /* Step Layout */
   .step-container {
@@ -2075,6 +2084,13 @@ a.review-btn:hover {
 
 .video-card-spacing {
   margin-top: 5rem;
+}
+
+@media (max-width: 1200px) {
+  .video-banner-section {
+    height: 100% !important;
+    min-height: calc(100vh - 95px);
+  }
 }
 
 @media (max-width: 576px) {

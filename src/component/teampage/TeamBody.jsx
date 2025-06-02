@@ -13,15 +13,23 @@ function TeamBody({ teamData }) {
                 </div>
                 <div className='team-card-container w-100'>
                     <ul className="team-card-list p-0 row  mb-0" style={{ maxWidth: "1024px", width: "100%", listStyleType: "none" }}>
-                        {teamData.map((item, index) => (
-                            <TeamCard
-                                key={index}
-                                team_member_img={item.img}
-                                team_member_name={item.name}
-                                team_member_designation={item.role}
-                                team_member_description={item.bio}
-                            />
-                        ))}
+                        {teamData.map((item, index) => {
+                            const isLastItem = index === teamData.length - 1;
+                            const itemsPerRow = 3; // for desktop (Bootstrap grid)
+                            const itemsInLastRow = teamData.length % itemsPerRow || itemsPerRow;
+                            const isSingleInLastRow = isLastItem && itemsInLastRow === 1;
+
+                            return (
+                                <TeamCard
+                                    key={index}
+                                    team_member_img={item.img}
+                                    team_member_name={item.name}
+                                    team_member_designation={item.role}
+                                    team_member_description={item.bio}
+                                    centerSingleCard={isSingleInLastRow}
+                                />
+                            );
+                        })}
                     </ul>
                 </div>
             </div>

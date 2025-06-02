@@ -1,9 +1,12 @@
 // TeamCard.jsx
 import React from 'react';
 
-const TeamCard = ({ team_member_img, team_member_name, team_member_designation, team_member_description }) => {
+const TeamCard = ({ team_member_img, team_member_name, team_member_designation, team_member_description, centerSingleCard = false }) => {
     return (
-        <li className="col-12 col-sm-6 col-md-4 col-lg-4 d-flex justify-content-center align-items-center flex-column text-center team-member-li">
+        <li className={`${centerSingleCard
+            ? 'col-12 d-flex justify-content-center'
+            : 'col-12 col-sm-6 col-md-4 col-lg-4'
+            } d-flex align-items-center flex-column text-center team-member-li`}>
             <img
                 src={team_member_img}
                 alt={team_member_name}
