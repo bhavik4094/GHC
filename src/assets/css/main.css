@@ -2185,3 +2185,93 @@ a.review-btn:hover {
   }
 
 }
+
+/* ============================
+  BLOG PAGE CSS
+============================ */
+
+.blog-cards-container {
+  padding: 48px 24px 80px;
+}
+
+.blog-card-row {
+  --bs-gutter-y: 32px;
+  --bs-gutter-x: 32px;
+}
+
+.blog-card {
+  padding: 32px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.blog-card-date {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #6b7280;
+  display: block;
+  opacity: 1;
+}
+
+.blog-card-title a {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.blog-card-description {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #000;
+  display: -webkit-box;
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+  /* Limit to 5 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blog-link a {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 900;
+  color: #64aa0e;
+}
+
+@media (max-width: 1024px) {
+  .blog-card-row {
+    --bs-gutter-y: 48px;
+    --bs-gutter-x: 24px;
+  }
+
+}
+
+@media (max-width: 576px) {
+  .blog-card-date {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .blog-card-title a {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .blog-card-description {
+    font-size: 16px;
+    line-height: 24px;
+
+  }
+
+  .blog-link a {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+}
