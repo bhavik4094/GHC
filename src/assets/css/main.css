@@ -2275,3 +2275,75 @@ a.review-btn:hover {
   }
 
 }
+
+/* ============================
+  SINGLE BLOG PAGE CSS
+============================ */
+
+.singlblg-hero-container {
+  gap: 20px;
+}
+
+.singleblog-hero-subhead {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+  /* color: #fff; */
+  margin-bottom: 20px;
+  padding: 0px 16px;
+  background-color: #64aa0e;
+  border-radius: 2px;
+  letter-spacing: -.05em;
+}
+
+.singleblog-hero-title {
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: -.05em;
+}
+
+.singleblog-hero-date {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.singlblg-cotnainer {
+  max-width: 896px;
+  padding: 48px 40px 80px;
+}
+
+.blog-paragraph {
+  margin-top: 0;
+  color: #000;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.blog-paragraph.with-margin {
+  margin-top: 32px;
+}
+
+@media (max-width: 576px) {
+
+
+  .singlblg-hero-container {
+    gap: 16px;
+    padding: 0px 16px !important;
+  }
+
+  .singleblog-hero-subhead {
+    margin-bottom: 0px;
+    padding: 4px 16px;
+  }
+
+  .singleblog-hero-title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .singlblg-cotnainer {
+    padding: 40px 16px 56px;
+  }
+}

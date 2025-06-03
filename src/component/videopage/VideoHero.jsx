@@ -19,7 +19,7 @@ const VideoHero = ({ hero_title, hero_description }) => {
                     </span>
                 </div>
             </div>
-
+            ,
             {/* Bottom Overlay Vector Image */}
             <img
                 src="https://products.codersh.com/greenhammerconcrete/wp-content/uploads/2025/05/vector-light2.svg"
