@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Blogdata from '../../assets/data/blogs.json';
 import SingleblogHero from '../../component/blogpage/SingleblogHero';
-import SingleBlogBody from './SingleBlogBody';
+import SingleBlogBody from '../../component/blogpage/SingleBlogBody';
 
 function SingleBlog() {
     const { id } = useParams(); // 👈 get id from URL

@@ -2290,7 +2290,7 @@ a.review-btn:hover {
   font-weight: 700;
   /* color: #fff; */
   margin-bottom: 20px;
-  padding: 0px 16px;
+  padding: 4px 16px;
   background-color: #64aa0e;
   border-radius: 2px;
   letter-spacing: -.05em;
@@ -2346,4 +2346,53 @@ a.review-btn:hover {
   .singlblg-cotnainer {
     padding: 40px 16px 56px;
   }
+}
+
+/* ============================
+  SERVICE PAGE CSS
+============================ */
+
+.service-hero-buttons {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  font-weight: 900 !important;
+}
+
+.service-hero-container {
+  gap: 32px;
+}
+
+.service-hero-first {
+  gap: 20px;
+}
+
+.service-hero-heading {
+  gap: 40px;
+}
+
+.service-hero-heading span {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -.9px;
+}
+
+.service-hero-heading h2 {
+  line-height: 60px;
+  letter-spacing: -2.4px;
+}
+
+.service-hero-subheading p {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.singlsrvs-cntnt-sctn {
+  padding: 48px 40px 80px;
+}
+
+.service-slider-images {
+  max-height: 415px;
+  height: 100%;
 }

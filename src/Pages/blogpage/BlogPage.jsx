@@ -9,11 +9,6 @@ const heroCardData = [
     }
 ];
 
-// Remove duplicates based on title
-
-
-// Remove duplicates based on title
-
 
 function BlogPage() {
     return (

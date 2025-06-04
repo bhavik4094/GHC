@@ -11,7 +11,7 @@ function BlogCard() {
                         <div className="blog-content">
                             <p className="blog-card-date mb-0">{blog.date}</p>
                             <h3 className="blog-card-title h5 mt-2 mb-0">
-                                <Link to={`/blog/${blog.id}`} className="text-decoration-none">
+                                <Link to={`/singleblog/${blog.id}`} className="text-decoration-none">
                                     {blog.title}
                                 </Link>
                             </h3>
