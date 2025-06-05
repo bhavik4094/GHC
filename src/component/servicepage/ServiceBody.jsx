@@ -6,6 +6,7 @@ function ServiceBody() {
     return (
         <div style={{ backgroundColor: "#fff" }}>
             <ServiceSlider />
+
             <ServiceContent />
         </div>
     )

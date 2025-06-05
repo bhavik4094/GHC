@@ -28,3 +28,19 @@ window.addEventListener('scroll', function () {
 });
 
 
+
+document.addEventListener("DOMContentLoaded", function () {
+    const fadeSection = document.getElementById('fadeSection');
+    const showAfterScroll = 120; // Distance in pixels to show the section
+
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+        // Show the fade section after a certain scroll distance
+        if (scrollPosition > showAfterScroll) {
+            fadeSection.classList.add('visible');
+        } else {
+            fadeSection.classList.remove('visible');
+        }
+    });
+});

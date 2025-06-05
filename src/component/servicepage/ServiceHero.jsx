@@ -5,7 +5,7 @@ function ServiceHero() {
         <section className="video-banner-section">
             {/* Background Image */}
             <img
-                src="https://products.codersh.com/greenhammerconcrete/wp-content/uploads/2025/05/hero-bg.webp"
+                src="https://landing-page-app-hero-images.s3.amazonaws.com/media/15cfc0ed-f1a7-408a-98f3-0551fa3f9426.png"
                 alt="Concrete background"
                 className="hero-background-img"
             />
@@ -13,10 +13,10 @@ function ServiceHero() {
             {/* Content Overlay */}
             <div className="video-hero-overlay text-center flex-column">
                 <div className="service-hero-container w-100 d-flex justify-content-center align-items-center flex-column">
-                    <div className="container text-center" style={{ maxWidth: "1280px", width: "100%" }}>
+                    <div className="container text-center service-hero-container-inner" style={{ maxWidth: "1280px", width: "100%" }}>
                         <div className="service-hero-first d-grid">
-                            <div className="service-hero-heading  text-uppercase  d-grid">
-                                <span> services</span>
+                            <div className="service-hero-heading  text-uppercase d-grid">
+                                <span className='text-center'> services</span>
                                 <h2 className='mb-0'>Driveway Repair & Replacements</h2>
                             </div>
                             <div className="service-hero-subheading ">
@@ -24,7 +24,7 @@ function ServiceHero() {
                             </div>
                         </div>
                     </div>
-                    <div className="cta-btns d-flex flex-column flex-md-row justify-content-center gap-3">
+                    <div className="cta-btns d-flex flex-column flex-md-row justify-content-center gap-3 service-hero-buttons-container">
                         <a href="#" class="quote-button service-hero-buttons">GET A FREE QUOTE</a>
                         <a href="#" class="call-button service-hero-buttons">CALL US</a>
                     </div>
