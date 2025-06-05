@@ -16,7 +16,7 @@ function PhotosHero() {
 
                 <div className="photos-hero-content">
                     <h2 className='text-uppercase mb-0'>Our Best Work</h2>
-                    <p className=" mt-4 mb-0">See for yourself why our customers love us</p>
+                    <p className=" mt-md-4 mt-3 mb-0">See for yourself why our customers love us</p>
                     <div className="cta-btns d-flex flex-column flex-md-row justify-content-center gap-3 photoshero-btncntnr">
                         <a href="#" class="quote-button photos-hero-btns">GET A FREE QUOTE</a>
                         <a href="#" class="call-button photos-hero-btns">CALL US</a>

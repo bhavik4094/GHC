@@ -2569,8 +2569,13 @@ a.review-btn:hover {
   }
 
   .masonry-grid {
-
     margin-left: -12px;
+  }
+
+  .photos-hero-content p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
   }
 
 }
