@@ -27,8 +27,6 @@
 // ];
 import Masonry from 'react-masonry-css';
 
-
-
 const images = Array.from({ length: 20 }, (_, i) =>
     `/images/work/work-${i + 1}.webp`
 );
@@ -37,41 +35,10 @@ const breakpointColumnsObj = {
     default: 4,
     1100: 3,
     768: 2,
-    500: 1,
+    500: 2,
 };
 
-
-
 function PhotosBody() {
-
-    // useEffect(() => {
-    //     const Masonry = window.Masonry;
-    //     new Masonry('.media-grid', {
-    //         itemSelector: '.grid-item',
-    //         columnWidth: '.grid-sizer',
-    //         gutter: 24,
-    //         percentPosition: true,
-    //     });
-    // }, []);
-
-
-    // const images = [
-    //     // Sample image URLs (you can replace these with your own)
-    //     '/images/work/work-1.webp',
-    //     '/images/work/work-2.webp',
-    //     '/images/work/work-3.webp',
-    //     '/images/work/work-4.webp',
-    //     '/images/work/work-5.webp',
-    //     '/images/work/work-6.webp',
-    //     '/images/work/work-7.webp',
-    //     '/images/work/work-8.webp',
-    //     '/images/work/work-9.webp',
-    //     '/images/work/work-10.webp',
-    //     '/images/work/work-11.webp',
-
-    // ];
-
-
 
     return (
         <section className='photos-body-section'>

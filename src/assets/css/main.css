@@ -2546,3 +2546,31 @@ a.review-btn:hover {
 .masonry-item:hover {
   transform: scale(1.05);
 }
+
+@media (max-width: 991px) {
+  .photos-body-section {
+    padding: 48px 24px;
+  }
+
+  .masonry-column {
+    padding-left: 12px;
+    /* gutter size */
+    background-clip: padding-box;
+  }
+
+  .masonry-item {
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .photos-body-section {
+    padding: 48px 16px;
+  }
+
+  .masonry-grid {
+
+    margin-left: -12px;
+  }
+
+}

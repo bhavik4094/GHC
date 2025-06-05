@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
         element: <ServicePage />,
       },
       {
-        path: "/photosall", // dynamic segment
+        path: "/photos/allphotos", // dynamic segment
         element: <PhotosPage />,
       },
 
