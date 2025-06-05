@@ -2498,3 +2498,51 @@ a.review-btn:hover {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
+
+
+/* ============================
+  ALL PHOTOS PAGE CSS
+============================ */
+.photoshero-btncntnr {
+  padding-top: 32px;
+}
+
+.photos-hero-content h2 {
+  letter-spacing: -1.2px;
+}
+
+.photos-hero-content p {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 300;
+}
+
+.photos-body-section {
+  padding: 96px 32px;
+}
+
+.masonry-grid {
+  display: flex;
+  margin-left: -24px;
+  /* gutter size offset */
+  width: auto;
+}
+
+.masonry-column {
+  padding-left: 24px;
+  /* gutter size */
+  background-clip: padding-box;
+}
+
+.masonry-item {
+  margin-bottom: 24px;
+  width: 100%;
+  display: block;
+  border-radius: 2px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.masonry-item:hover {
+  transform: scale(1.05);
+}

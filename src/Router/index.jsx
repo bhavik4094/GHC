@@ -6,6 +6,7 @@ import TeamPage from "../Pages/TeamPage";
 import BlogPage from "../Pages/blogpage/BlogPage";
 import SingleBlog from "../Pages/blogpage/SingleBlog";
 import ServicePage from "../Pages/ServicePage";
+import PhotosPage from "../Pages/PhotosPage";
 
 
 export const router = createBrowserRouter([
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/services", // dynamic segment
         element: <ServicePage />,
+      },
+      {
+        path: "/photosall", // dynamic segment
+        element: <PhotosPage />,
       },
 
     ],
