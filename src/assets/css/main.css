@@ -817,11 +817,11 @@ h4 {
   }
 }
 
-@media (max-width: 1280px) {
+/* @media (max-width: 1280px) {
   .hero-section {
-    /* margin-top: 100px; */
+    margin-top: 100px;
   }
-}
+} */
 
 /* ============================
    HERO ICONS PANEL CSS
@@ -2576,6 +2576,91 @@ a.review-btn:hover {
     font-size: 16px;
     line-height: 24px;
     font-weight: 300;
+  }
+
+}
+
+
+
+/* ============================
+  Reviews PAGE CSS
+============================ */
+
+.reviews-hero-stars {
+  height: 24px;
+  width: 24px;
+}
+
+.reviews-hero-container h2 {
+  letter-spacing: -1.2px;
+  margin-top: 16px;
+}
+
+.reviews-hero-container p {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 300;
+}
+
+.reviews-hero-btn {
+  margin-top: 40px;
+  padding: 18px 46px !important;
+}
+
+.masonry-review-card {
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.reviews-body-container {
+  max-width: 1280px;
+  padding: 64px 32px 40px;
+}
+
+/* mansory layout of review cards */
+.review-masonry-grid {
+  display: flex;
+  margin-left: -24px;
+  width: auto;
+}
+
+.review-masonry-grid_column {
+  padding-left: 24px;
+  background-clip: padding-box;
+}
+
+/* Optional: Adjust spacing between items */
+/* .my-masonry-grid_column>* {
+  margin-bottom: 24px;
+} */
+
+@media (max-width: 576px) {
+
+  .reviews-hero-container {
+    padding: 0 16px !important;
+  }
+
+  .reviews-hero-stars {
+    height: 20px;
+    width: 20px;
+  }
+
+  .reviews-hero-container h2 {
+    margin-top: 10px;
+    letter-spacing: -.75px;
+  }
+
+  .reviews-hero-container p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+  }
+
+  .reviews-hero-btn {
+    margin-top: 32px;
+    padding: 14px 20px !important;
+    font-size: 18px !important;
+    line-height: 28px !important;
   }
 
 }
