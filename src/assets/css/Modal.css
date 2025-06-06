@@ -1,0 +1,126 @@
+.review-modal-buttom {
+    margin-top: 10px;
+    margin-right: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.modal-dialogbox-cotnainer {
+    width: 100%;
+    max-width: 100vw !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.modal-content {
+    max-width: 768px !important;
+    width: 100% !important;
+    padding-bottom: 48px;
+    margin: 0 24px;
+    /* z-index: 1055; */
+}
+
+.modal-content h2 {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 900;
+    padding-top: 64px;
+}
+
+.fivestar-contianer {
+    padding-top: 12px;
+}
+
+
+.review-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    /* margin-top: 24px; */
+    padding: 32px 64px 0px;
+}
+
+.review-button {
+    background-color: #64aa0e;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.125rem;
+    display: flex;
+    align-items: center;
+    /* gap: 10px; */
+    min-width: 200px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    text-align: left;
+    min-height: 54px;
+    height: 100%;
+}
+
+.review-button span {
+    padding: 0px 24px;
+}
+
+.review-button strong {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+.review-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.review-button:hover {
+    opacity: 0.9;
+}
+
+
+@media (max-width: 768px) {
+    .review-buttons {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .review-button {
+        width: 100% !important;
+    }
+
+    .review-button span {
+        width: 100% !important;
+        padding: 0 24px;
+    }
+
+    .leave-us-review {
+        top: -50%;
+    }
+
+    .leave-us-review-section {
+        padding: 110px;
+    }
+}
+
+@media (max-width: 576px) {
+    .leave-us-review {
+        padding: 0px;
+    }
+
+    .review-box {
+        padding: 24px;
+        margin: 0 32px !important;
+
+    }
+
+    .modal-content h2 {
+        font-size: 30px;
+    }
+
+    .review-buttons {
+        padding: 32px 24px 0px;
+    }
+}

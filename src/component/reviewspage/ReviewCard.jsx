@@ -57,10 +57,15 @@ const ReviewCard = ({ review }) => {
                 <p className="text-muted review-msg mb-0 mt-3">{review.text}</p>
             </div>
             <div className="mt-4">
-                <p className="text-uppercase review-name mb-0">{review.name}</p>
-                <span className="badge review-category text-uppercase">
-                    {review.category}
-                </span>
+                <div className="left">
+                    <p className="text-uppercase review-name mb-0">{review.name}</p>
+                    <span className="badge review-category text-uppercase">
+                        {review.category}
+                    </span>
+                </div>
+                <div className="right">
+
+                </div>
             </div>
         </div>
     );

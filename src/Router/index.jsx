@@ -8,6 +8,7 @@ import SingleBlog from "../Pages/blogpage/SingleBlog";
 import ServicePage from "../Pages/ServicePage";
 import PhotosPage from "../Pages/PhotosPage";
 import ReviewsPage from "../Pages/ReviewsPage";
+import ContactPage from "../Pages/ContactPage";
 
 
 export const router = createBrowserRouter([
@@ -49,5 +50,9 @@ export const router = createBrowserRouter([
       },
 
     ],
+  },
+  {
+    path: "/contact", // dynamic segment
+    element: <ContactPage />,
   },
 ]);

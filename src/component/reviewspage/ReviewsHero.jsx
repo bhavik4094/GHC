@@ -1,5 +1,7 @@
 import React from 'react'
 import footerPageTear from "../../assets/img/footer-pagetear-img.webp"
+import ReviewModal from './ReviewModal';
+import "../../assets/css/Modal.css"
 
 function ReviewsHero() {
     const starSvg = (
@@ -34,7 +36,19 @@ function ReviewsHero() {
                     </div>
                     <h2 className='text-uppercase mb-0'>Reviews</h2>
                     <p className=" mb-0 mt-3 mt-md-4 ">Take a look for yourself on what your neighbors are saying about us.</p>
-                    <a href="#" className="quote-button reviews-hero-btn">LEAVE US A REVIEW</a>
+                    {/* <a href="#" className="quote-button reviews-hero-btn">LEAVE US A REVIEW</a> */}
+                    {/* Bootstrap-controlled button */}
+                    <a
+                        href="#"
+                        className="quote-button reviews-hero-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#reviewModal"
+                    >
+                        LEAVE US A REVIEW
+                    </a>
+
+                    {/* Bootstrap-controlled modal */}
+                    <ReviewModal />
                 </div>
             </div>
 

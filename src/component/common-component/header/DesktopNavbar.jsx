@@ -85,8 +85,11 @@ function DesktopMenu({
         </ul>
       </div>
       <div className="d-flex header-buttons">
-        <a href="#" class="quote-button">SEND US A TEXT</a>
-        <a href="#" class="call-button">CALL NOW</a>
+        <Link className="quote-button" to="/contact">
+          SEND US A TEXT
+        </Link>
+        {/* <a href="/contac" className="quote-button">SEND US A TEXT</a> */}
+        <a href="#" className="call-button">CALL NOW</a>
       </div>
     </div>
   );

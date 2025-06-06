@@ -2629,10 +2629,7 @@ a.review-btn:hover {
   background-clip: padding-box;
 }
 
-/* Optional: Adjust spacing between items */
-/* .my-masonry-grid_column>* {
-  margin-bottom: 24px;
-} */
+
 
 @media (max-width: 576px) {
 
@@ -2663,4 +2660,37 @@ a.review-btn:hover {
     line-height: 28px !important;
   }
 
+}
+
+
+
+
+/* ============================
+  CONTACT PAGE CSS
+============================ */
+
+.modal-form-overlay {
+  background: url('https://products.codersh.com/greenhammerconcrete/wp-content/uploads/2025/05/hero-bg.webp') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  /* padding: 3rem 1rem; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .7;
+}
+
+.form-container {
+  max-width: 800px;
+  height: 100vh;
+  border: 1px solid #6ebf34;
+  border-radius: 2px;
+}
+
+.contact-modal-buttom {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 25px;
+  margin-right: 25px;
 }
