@@ -2662,9 +2662,6 @@ a.review-btn:hover {
 
 }
 
-
-
-
 /* ============================
   CONTACT PAGE CSS
 ============================ */
@@ -2673,18 +2670,50 @@ a.review-btn:hover {
   background: url('https://products.codersh.com/greenhammerconcrete/wp-content/uploads/2025/05/hero-bg.webp') no-repeat center center;
   background-size: cover;
   min-height: 100vh;
-  /* padding: 3rem 1rem; */
+  height: 100vh !important;
+  /* Fixed to viewport height */
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: .7;
+  opacity: 1;
+  /* padding: 1rem; */
+  /* Add some padding for smaller screens */
+  position: relative;
+  /* For positioning the overlay */
+}
+
+/* Dark overlay on background image */
+.modal-form-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  /* Dark overlay - adjust opacity as needed */
+  z-index: 1;
+  /* Behind the form container */
 }
 
 .form-container {
-  max-width: 800px;
-  height: 100vh;
+  max-width: 768px;
+  width: 100%;
+  height: 100%;
+  /* Fixed to viewport height */
+  max-height: 1021px;
+  /* Ensure it doesn't exceed viewport */
   border: 1px solid #6ebf34;
   border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  /* Stack header, form, and footer */
+  overflow: hidden;
+  /* Prevent container from scrolling */
+  position: relative;
+  /* Ensure it's above the overlay */
+  z-index: 2;
+  /* Above the dark overlay */
 }
 
 .contact-modal-buttom {
@@ -2693,4 +2722,139 @@ a.review-btn:hover {
   right: 0;
   margin-top: 25px;
   margin-right: 25px;
+  z-index: 3;
+  /* Above everything */
+}
+
+.contact-header-box {
+  flex-shrink: 0;
+  /* Prevent header from shrinking */
+}
+
+/* Make the form scrollable */
+.contact-form-wrapper {
+  flex: 1;
+  /* Take up remaining space */
+  overflow-y: auto;
+  /* Make this section scrollable */
+  /* padding: 0 1rem; */
+  /* Add horizontal padding */
+}
+
+.contact-bottom {
+  flex-shrink: 0;
+  /* Prevent footer from shrinking */
+  padding: 12px 24px 16px;
+}
+
+/* Rest of your existing styles */
+.contact-header {
+  font-size: 60px;
+  line-height: 60px;
+  font-weight: 800;
+}
+
+.contact-subheading {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.contact-form-label {
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  row-gap: 16px;
+  column-gap: 16px;
+  background-color: #fff;
+  color: rgb(55, 65, 81);
+  padding: 24px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  border-radius: 2px;
+}
+
+.contact-form-control {
+  padding: 10px 12px;
+  border-radius: 2px;
+}
+
+.contact-form-control-sec {
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.contact-bottom p {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: rgb(209, 213, 219);
+}
+
+.contact-submit-btn {
+  margin: 16px 16px 0px;
+  padding: 10px 0;
+  width: -webkit-fill-available;
+  border-radius: 2px;
+  font-weight: 400 !important;
+  background-color: #64aa0e;
+}
+
+.contact-submit-btn:hover {
+  background-color: #4f860b;
+}
+
+.contact-form-check-input {
+  border: 1px solid rgb(107, 114, 120);
+  border-radius: 4px;
+  height: 16px !important;
+  width: 16px !important;
+  margin-top: 0px;
+  margin-left: 0px !important;
+}
+
+.contact-service-list {
+  min-height: fit-content !important;
+  padding-left: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-form-service-label {
+  margin-left: 12px;
+}
+
+.contact-form-check-input:checked {
+  background-color: #000;
+  border-color: #000 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .contact-header {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+  }
+
+  .contact-subheading {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 4px 0px 12px !important;
+  }
+
+  .form-grid {
+    row-gap: 24px !important;
+  }
+
+  .service-grid {
+    padding: 16px;
+  }
 }
