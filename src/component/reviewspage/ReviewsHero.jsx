@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from "react";
 import footerPageTear from "../../assets/img/footer-pagetear-img.webp"
 import ReviewModal from './ReviewModal';
 import "../../assets/css/Modal.css"
 
 function ReviewsHero() {
+    const [showModal, setShowModal] = useState(false);
+
     const starSvg = (
         <svg xmlns="http://www.w3.org/2000/svg" class="reviews-hero-stars" viewBox="0 0 24 24" fill="none">
             <g clip-path="url(#clip0_5552_28268)">
@@ -41,14 +43,14 @@ function ReviewsHero() {
                     <a
                         href="#"
                         className="quote-button reviews-hero-btn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#reviewModal"
+
+                        onClick={() => setShowModal(true)}
                     >
                         LEAVE US A REVIEW
                     </a>
 
                     {/* Bootstrap-controlled modal */}
-                    <ReviewModal />
+                    <ReviewModal show={showModal} handleClose={() => setShowModal(false)} />
                 </div>
             </div>
 
