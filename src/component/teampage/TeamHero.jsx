@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TeamHero({ hero_title, hero_description }) {
+function TeamHero({ heading, description, }) {
     return (
         <section className="video-banner-section">
             {/* Background Image */}
@@ -13,9 +13,9 @@ function TeamHero({ hero_title, hero_description }) {
             {/* Content Overlay */}
             <div className="video-hero-overlay text-center">
                 <div className="container d-flex justify-content-center align-items-center flex-column">
-                    <h2 className="text-uppercase mb-0" style={{ maxWidth: "576px" }}>{hero_title}</h2>
+                    <h2 className="text-uppercase mb-0" style={{ maxWidth: "576px" }}>{heading}</h2>
                     <span className="hero-description2" style={{ maxWidth: "576px" }}>
-                        {hero_description}
+                        {description}
                     </span>
                 </div>
             </div>

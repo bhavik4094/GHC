@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.9.0",
     "bootstrap": "^5.3.5",
+    "cors": "^2.8.5",
     "framer-motion": "^12.16.0",
     "ghc": "file:",
     "react": "^19.0.0",

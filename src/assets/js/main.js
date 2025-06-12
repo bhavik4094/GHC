@@ -22,3 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+
+
+// console.log("API response:", response.data);
