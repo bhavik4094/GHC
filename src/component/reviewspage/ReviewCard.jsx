@@ -1,6 +1,7 @@
 import React from 'react';
 // import { ReactComponent as StarIcon } from '../icons/star.svg';
 // import { ReactComponent as QuoteIcon } from '../icons/quote.svg';
+import googleLogo from '../../assets/img/google-logo2.webp';
 
 
 const StarIcon = () => (
@@ -46,7 +47,7 @@ const ReviewCard = ({ review }) => {
             <div className="d-flex flex-column justify-content-between review-card-body">
                 <div className="d-flex justify-content-between align-items-center">
                     <div className="text-warning fs-5 d-flex">
-                        {Array.from({ length: 5 }, (_, i) => (
+                        {Array.from({ length: review.rating }, (_, i) => (
                             <span className="me-1" key={i}>
                                 <StarIcon />
                             </span>
@@ -56,7 +57,7 @@ const ReviewCard = ({ review }) => {
                 </div>
                 <p className="text-muted review-msg mb-0 mt-3">{review.text}</p>
             </div>
-            <div className="mt-4">
+            <div className="mt-4 d-flex align-items-center justify-content-between review-card-footer">
                 <div className="left">
                     <p className="text-uppercase review-name mb-0">{review.name}</p>
                     <span className="badge review-category text-uppercase">
@@ -64,6 +65,7 @@ const ReviewCard = ({ review }) => {
                     </span>
                 </div>
                 <div className="right">
+                    <img src={googleLogo} alt="google logo" className='logo-comapny' height={28} style={{ marginLeft: "16px" }} />
 
                 </div>
             </div>

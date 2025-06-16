@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import footerPageTear from "../../assets/img/footer-pagetear-img.webp"
 import ReviewModal from './ReviewModal';
 import "../../assets/css/Modal.css"
 
 function ReviewsHero() {
     const [showModal, setShowModal] = useState(false);
+
+    // dynamic data 
+    const [heroData, setHeroData] = useState({ heading: '', description: '', buttontext: '' });
+
+    useEffect(() => {
+        axios.get('http://localhost:5000/api/reviewhero')
+            .then(res => {
+                if (res.data) {
+                    setHeroData(res.data);
+                }
+            })
+            .catch(err => {
+                console.error('Failed to load review hero data:', err);
+            });
+    }, []);
 
     const starSvg = (
         <svg xmlns="http://www.w3.org/2000/svg" class="reviews-hero-stars" viewBox="0 0 24 24" fill="none">
@@ -36,9 +52,9 @@ function ReviewsHero() {
                             <span key={i}>{starSvg}</span>
                         ))}
                     </div>
-                    <h2 className='text-uppercase mb-0'>Reviews</h2>
-                    <p className=" mb-0 mt-3 mt-md-4 ">Take a look for yourself on what your neighbors are saying about us.</p>
-                    {/* <a href="#" className="quote-button reviews-hero-btn">LEAVE US A REVIEW</a> */}
+                    <h2 className='text-uppercase mb-0'>{heroData.heading || 'Data Not Found'}</h2>
+                    <p className=" mb-0 mt-3 mt-md-4 ">{heroData.description || 'Data Not Found'}</p>
+
                     {/* Bootstrap-controlled button */}
                     <a
                         href="#"
@@ -46,7 +62,7 @@ function ReviewsHero() {
 
                         onClick={() => setShowModal(true)}
                     >
-                        LEAVE US A REVIEW
+                        {heroData.buttontext || 'Data Not Found'}
                     </a>
 
                     {/* Bootstrap-controlled modal */}
