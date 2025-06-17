@@ -4,7 +4,7 @@ import SingleblogHero from '../../component/blogpage/SingleblogHero';
 import SingleBlogBody from '../../component/blogpage/SingleBlogBody';
 
 function SingleBlog() {
-    const { id } = useParams(); // Get custom ID from URL
+    const { slug } = useParams(); // Get slug from URL
     const [blog, setBlog] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -13,8 +13,8 @@ function SingleBlog() {
         const fetchBlog = async () => {
             try {
                 setLoading(true);
-                // Use the custom ID endpoint from updated backend
-                const response = await fetch(`http://localhost:5000/api/blogs/id/${id}`);
+                // Use the slug endpoint from updated backend
+                const response = await fetch(`http://localhost:5000/api/blogs/slug/${slug}`);
 
                 if (response.status === 404) {
                     setError('Blog not found');
@@ -35,10 +35,10 @@ function SingleBlog() {
             }
         };
 
-        if (id) {
+        if (slug) {
             fetchBlog();
         }
-    }, [id]);
+    }, [slug]);
 
     if (loading) {
         return (

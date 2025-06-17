@@ -6,6 +6,14 @@ function BlogCard() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // Helper function to create URL-friendly slug from title
+    const createSlug = (title) => {
+        return title
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    };
+
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
@@ -17,13 +25,11 @@ function BlogCard() {
 
                 const response = await fetch(apiUrl);
                 console.log('Response status:', response.status);
-                console.log('Response headers:', response.headers.get('content-type'));
 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
-                // Check if response is actually JSON
                 const contentType = response.headers.get('content-type');
                 if (!contentType || !contentType.includes('application/json')) {
                     const responseText = await response.text();
@@ -38,6 +44,7 @@ function BlogCard() {
                     throw new Error('Expected array of blogs but received: ' + typeof data);
                 }
 
+                // Blogs are already sorted by latest date from the backend
                 setBlogs(data);
             } catch (err) {
                 console.error('Error fetching blogs:', err);
@@ -107,42 +114,45 @@ function BlogCard() {
 
     return (
         <>
-            {blogs.map(blog => (
-                <div className="col-12 col-md-6 col-lg-4" key={blog._id || blog.id}>
-                    <article className="blog-card h-100 d-flex flex-column justify-content-between">
-                        <div className="blog-content">
-                            <p className="blog-card-date mb-0">{blog.date}</p>
-                            <h3 className="blog-card-title h5 mt-2 mb-0">
-                                <Link to={`/singleblog/${blog.id}`} className="text-decoration-none">
-                                    {blog.title}
-                                </Link>
-                            </h3>
-                            <p className="blog-card-description my-3">
-                                {blog.description || 'No description available'}
-                            </p>
-                        </div>
+            {blogs.map(blog => {
+                const slug = createSlug(blog.title);
+                return (
+                    <div className="col-12 col-md-6 col-lg-4" key={blog._id}>
+                        <article className="blog-card h-100 d-flex flex-column justify-content-between">
+                            <div className="blog-content">
+                                <p className="blog-card-date mb-0">{blog.date}</p>
+                                <h3 className="blog-card-title h5 mt-2 mb-0">
+                                    <Link to={`/blog/${slug}`} className="text-decoration-none">
+                                        {blog.title}
+                                    </Link>
+                                </h3>
+                                <p className="blog-card-description my-3">
+                                    {blog.description || 'No description available'}
+                                </p>
+                            </div>
 
-                        <div className="blog-link d-flex align-items-center gap-1">
-                            <Link to={`/singleblog/${blog.id}`} className="text-decoration-none d-flex align-items-center">
-                                READ FULL POST
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="20"
-                                    height="20"
-                                    fill="currentColor"
-                                    viewBox="0 0 16 16"
-                                    className="ms-1"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                                    />
-                                </svg>
-                            </Link>
-                        </div>
-                    </article>
-                </div>
-            ))}
+                            <div className="blog-link d-flex align-items-center gap-1">
+                                <Link to={`/blog/${slug}`} className="text-decoration-none d-flex align-items-center">
+                                    READ FULL POST
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        fill="currentColor"
+                                        viewBox="0 0 16 16"
+                                        className="ms-1"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                                        />
+                                    </svg>
+                                </Link>
+                            </div>
+                        </article>
+                    </div>
+                );
+            })}
         </>
     );
 }

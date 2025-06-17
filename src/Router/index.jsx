@@ -10,7 +10,6 @@ import PhotosPage from "../Pages/PhotosPage";
 import ReviewsPage from "../Pages/ReviewsPage";
 import ContactPage from "../Pages/ContactPage";
 
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -33,26 +32,25 @@ export const router = createBrowserRouter([
         element: <BlogPage />,
       },
       {
-        path: "/singleblog/:id", // dynamic segment
+        path: "/blog/:slug", // Changed from /singleblog/:id to use slug
         element: <SingleBlog />,
       },
       {
-        path: "/services", // dynamic segment
+        path: "/services",
         element: <ServicePage />,
       },
       {
-        path: "/photos/allphotos", // dynamic segment
+        path: "/photos/allphotos",
         element: <PhotosPage />,
       },
       {
-        path: "/reviews", // dynamic segment
+        path: "/reviews",
         element: <ReviewsPage />,
       },
-
     ],
   },
   {
-    path: "/contact", // dynamic segment
+    path: "/contact",
     element: <ContactPage />,
   },
 ]);
