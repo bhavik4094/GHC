@@ -1,14 +1,7 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import Blogdata from '../../assets/data/blogs.json';
 
-function SingleblogHero() {
-    const { id } = useParams(); // Get blog ID from URL
+function SingleblogHero({ blog }) {
 
-    // Find the blog with matching ID
-    const blog = Blogdata.find(item => item.id === parseInt(id));
-
-    // Handle case if blog not found
     if (!blog) {
         return (
             <section className="video-banner-section text-center py-5">
@@ -19,7 +12,6 @@ function SingleblogHero() {
 
     return (
         <section className="video-banner-section">
-            {/* Content Overlay */}
             <div className="video-hero-overlay text-center">
                 <div className="container d-flex justify-content-center align-items-center flex-column singlblg-hero-container">
                     <span className="singleblog-hero-subhead">BLOG</span>
@@ -38,6 +30,7 @@ function SingleblogHero() {
                 alt="Decorative vector"
                 className="hero-bottom-vector"
             />
+
         </section>
     );
 }

@@ -6,10 +6,11 @@ function SingleBlogBody({ blog }) {
     if (paragraphs.length === 0) {
         return <p className="text-center">No content available.</p>;
     }
+
     return (
         <section className='singlblg-body-section d-flex justify-content-center align-items-center' style={{ backgroundColor: "#fff" }}>
             <div className="singlblg-cotnainer">
-                {blog.paragraphs.map((para, index) => (
+                {paragraphs.map((para, index) => (
                     <p key={index} className={`blog-paragraph ${index > 1 ? 'with-margin' : ''}`}>
                         {para}
                     </p>

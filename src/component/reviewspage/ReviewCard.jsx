@@ -1,8 +1,4 @@
 import React from 'react';
-// import { ReactComponent as StarIcon } from '../icons/star.svg';
-// import { ReactComponent as QuoteIcon } from '../icons/quote.svg';
-import googleLogo from '../../assets/img/google-logo2.webp';
-
 
 const StarIcon = () => (
     <svg
@@ -65,8 +61,7 @@ const ReviewCard = ({ review }) => {
                     </span>
                 </div>
                 <div className="right">
-                    <img src={googleLogo} alt="google logo" className='logo-comapny' height={28} style={{ marginLeft: "16px" }} />
-
+                    <img src={`http://localhost:5000/${review.imagePath}`} alt="google logo" className='logo-comapny' height={28} style={{ marginLeft: "16px" }} />
                 </div>
             </div>
         </div>

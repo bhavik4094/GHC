@@ -6,11 +6,7 @@ function BlogBody() {
         <section className='blogPage-body-section'>
             <div className="container blog-cards-container" style={{ maxWidth: "1280px" }}>
                 <div className="row blog-card-row"> {/* Fixed typo */}
-
-                    <BlogCard
-
-                    />
-
+                    <BlogCard />
                 </div>
             </div>
         </section>
