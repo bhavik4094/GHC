@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
         element: <SingleBlog />,
       },
       {
-        path: "/services",
+        path: "/services/:slug",
         element: <ServicePage />,
       },
       {

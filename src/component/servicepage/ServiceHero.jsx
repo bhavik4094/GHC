@@ -1,10 +1,14 @@
 import React from 'react'
 
-function ServiceHero() {
+function ServiceHero({ serviceData }) {
+
+    const { title, shortDescription } = serviceData;
+
     return (
         <section className="video-banner-section">
+
             {/* Background Image */}
-            <img
+            < img
                 src="https://landing-page-app-hero-images.s3.amazonaws.com/media/15cfc0ed-f1a7-408a-98f3-0551fa3f9426.png"
                 alt="Concrete background"
                 className="hero-background-img"
@@ -17,10 +21,10 @@ function ServiceHero() {
                         <div className="service-hero-first d-grid">
                             <div className="service-hero-heading  text-uppercase d-grid">
                                 <span className='text-center'> services</span>
-                                <h2 className='mb-0'>Driveway Repair & Replacements</h2>
+                                <h2 className='mb-0'>{title || "title is not found "}</h2>
                             </div>
                             <div className="service-hero-subheading ">
-                                <p className='mb-0 '>Our driveway repair and replacement service offers homeowners a reliable solution for fixing or upgrading their existing driveways, ensuring durability and enhancing the overall aesthetic appeal of their property.</p>
+                                <p className='mb-0 '>{shortDescription || "description not found"}</p>
                             </div>
                         </div>
                     </div>

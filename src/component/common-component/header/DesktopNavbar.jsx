@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { useServices } from '../../../context/ServicesContext';
+
 function DesktopMenu({
   servicesRef,
   photosRef,
@@ -9,6 +11,9 @@ function DesktopMenu({
   desktopPhotosOpen,
   setDesktopPhotosOpen
 }) {
+
+  const { services, loading, error } = useServices();
+
   return (
     <div className="d-flex justify-content-between align-items-center w-100 ">
       <div className=''>
@@ -33,23 +38,42 @@ function DesktopMenu({
             </span>
             {desktopServicesOpen && (
               <div className="dropdown-menu mega-menu show">
-                <div className="mega-menu-column">
-                  <Link className="dropdown-item" to="/services/driveway-repair">Driveway Repair & Replacements</Link>
-                  <Link className="dropdown-item" to="/services/patio-design">Patio Design & Construction</Link>
-                  <Link className="dropdown-item" to="/services/slab-installation">Concrete Slab Installation</Link>
-                  <Link className="dropdown-item" to="/services/mitered-ends">Mitered Ends</Link>
-                  <Link className="dropdown-item" to="/services/sunken-room">Fill-in Sunken Living Room</Link>
-                  <Link className="dropdown-item" to="/services/parking-lot-repairs">Parking Lot Repairs and Curbing</Link>
-                  <Link className="dropdown-item" to="/services/bollards">Bollards Installation</Link>
-                </div>
-                <div className="mega-menu-column">
-                  <Link className="dropdown-item" to="/services/concrete-repairs">Concrete Repairs</Link>
-                  <Link className="dropdown-item" to="/services/sidewalks">Sidewalks and Walkway Construction</Link>
-                  <Link className="dropdown-item" to="/services/retaining-wall">Retaining Wall Construction</Link>
-                  <Link className="dropdown-item" to="/services/floating-ponds">Modern Decorative Floating Ponds</Link>
-                  <Link className="dropdown-item" to="/services/plumbing-trench">Plumbing Trench Concrete Pour Back</Link>
-                  <Link className="dropdown-item" to="/services/culvert-pipe">Culvert Pipe Installation</Link>
-                </div>
+                {loading ? (
+                  <div className="dropdown-item">Loading services...</div>
+                ) : error ? (
+                  <div className="dropdown-item"><span className='text-denger' style={{ color: "darkred" }}>Error:</span> Failed to load services</div>
+                ) : services.length === 0 ? (
+                  <div className="dropdown-item">No services available</div>
+                ) : (
+                  <>
+                    <div className="mega-menu-column">
+                      {services.slice(0, Math.ceil(services.length / 2)).map((service) => (
+                        <Link
+                          key={service._id}
+                          className="dropdown-item"
+                          to={`/services/${service.slug}`}
+                          onClick={() => setDesktopServicesOpen(false)}
+                        >
+                          {service.title}
+                        </Link>
+                      ))}
+
+                    </div>
+                    <div className="mega-menu-column">
+                      {services.slice(Math.ceil(services.length / 2)).map((service) => (
+                        <Link
+                          key={service._id}
+                          className="dropdown-item"
+                          to={`/services/${service.slug}`}
+                          onClick={() => setDesktopServicesOpen(false)}
+                        >
+                          {service.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                )}
+
               </div>
             )}
           </li>

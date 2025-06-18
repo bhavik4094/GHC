@@ -21,7 +21,7 @@ function ReviewBody() {
                 const response = await axios.get('http://localhost:5000/api/reviewcards');
                 setReviews(response.data);
             } catch (err) {
-                setError('Failed to load reviews.');
+                setError('Failed to load reviews Body Section.');
                 console.error(err);
             } finally {
                 setLoading(false);
@@ -37,7 +37,9 @@ function ReviewBody() {
                 {loading ? (
                     <p>Loading reviews...</p>
                 ) : error ? (
-                    <p className="">{error}</p>
+                    <p className="text-center fs-6 my-3">
+                        <span style={{ color: "red" }}>Error:</span> {error}
+                    </p>
                 ) : (
                     <Masonry
                         breakpointCols={breakpointColumnsObj}
