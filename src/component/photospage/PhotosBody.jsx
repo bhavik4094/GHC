@@ -1,35 +1,7 @@
-// import React, { useEffect } from 'react';
-
-// const mediaItems = [
-//     { type: 'image', src: '/images/work/work-1.webp' },
-//     { type: 'image', src: '/images/work/work-2.webp' },
-//     { type: 'image', src: '/images/work/work-3.webp' },
-//     { type: 'image', src: '/images/work/work-4.webp' },
-//     { type: 'image', src: '/images/work/work-5.webp' },
-//     { type: 'image', src: '/images/work/work-6.webp' },
-//     { type: 'image', src: '/images/work/work-7.webp' },
-//     { type: 'image', src: '/images/work/work-8.webp' },
-//     { type: 'image', src: '/images/work/work-9.webp' },
-//     { type: 'image', src: '/images/work/work-10.webp' },
-//     { type: 'image', src: '/images/work/work-11.webp' },
-//     { type: 'image', src: '/images/work/work-12.webp' },
-//     { type: 'image', src: '/images/work/work-13.webp' },
-//     { type: 'image', src: '/images/work/work-14.webp' },
-//     { type: 'image', src: '/images/work/work-15.webp' },
-//     { type: 'image', src: '/images/work/work-16.webp' },
-//     { type: 'image', src: '/images/work/work-17.webp' },
-//     { type: 'image', src: '/images/work/work-18.webp' },
-//     { type: 'image', src: '/images/work/work-19.webp' },
-//     { type: 'image', src: '/images/work/work-20.webp' },
-//     // { type: 'video', src: '/media/video1.mp4' },
-
-//     // Add more items as needed
-// ];
+import React, { useEffect, useState } from 'react';
 import Masonry from 'react-masonry-css';
+import MediaItem from './MediaItem';
 
-const images = Array.from({ length: 20 }, (_, i) =>
-    `/images/work/work-${i + 1}.webp`
-);
 
 const breakpointColumnsObj = {
     default: 4,
@@ -40,6 +12,14 @@ const breakpointColumnsObj = {
 
 function PhotosBody() {
 
+    const [mediaItems, setMediaItems] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/api/media")
+            .then((res) => res.json())
+            .then(setMediaItems);
+    }, []);
+
     return (
         <section className='photos-body-section'>
             <Masonry
@@ -47,8 +27,8 @@ function PhotosBody() {
                 className="masonry-grid"
                 columnClassName="masonry-column"
             >
-                {images.map((src, index) => (
-                    <img key={index} src={src} alt={`img-${index}`} className="masonry-item" />
+                {mediaItems.map((item, index) => (
+                    <MediaItem key={index} src={`http://localhost:5000/uploads/${item.filename}`} type={item.type} alt={item.title} />
                 ))}
             </Masonry>
         </section>

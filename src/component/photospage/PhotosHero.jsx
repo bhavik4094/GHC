@@ -10,10 +10,8 @@ function PhotosHero() {
                 alt="Concrete background"
                 className="hero-background-img"
             />
-
             {/* Content Overlay */}
             <div className="video-hero-overlay text-center flex-column">
-
                 <div className="photos-hero-content">
                     <h2 className='text-uppercase mb-0'>Our Best Work</h2>
                     <p className=" mt-md-4 mt-3 mb-0">See for yourself why our customers love us</p>
@@ -22,9 +20,7 @@ function PhotosHero() {
                         <a href="#" class="call-button photos-hero-btns">CALL US</a>
                     </div>
                 </div>
-
             </div>
-
             {/* Bottom Overlay Vector Image */}
             <img
                 src={footerPageTear}
@@ -34,5 +30,4 @@ function PhotosHero() {
         </section>
     )
 }
-
 export default PhotosHero
