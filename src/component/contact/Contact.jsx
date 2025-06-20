@@ -87,12 +87,22 @@ function Contact() {
         setIsSubmitting(true);
 
         try {
-            await new Promise((res) => setTimeout(res, 2000));
-            console.log(formData);
-            toast.success("Form submitted successfully!");
-            setFormData(initialFormState); // Clear the form
+            const response = await fetch('http://localhost:5000/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                toast.success(result.message || "Form submitted successfully!");
+                setFormData(initialFormState);
+            } else {
+                toast.error(result.error || "Submission failed.");
+            }
         } catch (err) {
-            toast.error("Submission failed. Please try again.");
+            toast.error("Server error. Please try again.");
             console.error("Form submission error:", err);
         } finally {
             setIsSubmitting(false);
