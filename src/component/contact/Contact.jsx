@@ -93,6 +93,7 @@ function Contact() {
             setFormData(initialFormState); // Clear the form
         } catch (err) {
             toast.error("Submission failed. Please try again.");
+            console.error("Form submission error:", err);
         } finally {
             setIsSubmitting(false);
         }
