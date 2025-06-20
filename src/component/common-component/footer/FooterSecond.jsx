@@ -4,25 +4,14 @@ import bottomLogo from '../../../assets/img/footer-3-logo.webp';
 import googleLogo from '../../../assets/img/google-logo.webp';
 import facebookLogo from '../../../assets/img/facebook-logo.webp';
 import nextdoorLogo from '../../../assets/img/nextdoor.webp';
+import { useServices } from '../../../context/ServicesContext';
+import { Link } from 'react-router-dom';
 
 const FooterSecond = () => {
+  const { services, loading, error } = useServices();
+
   const links = {
     company: ['Home', 'Reviews', 'Team', 'Sitemap'],
-    services: [
-      'Driveway Repair & Replacements',
-      'Patio Design & Construction',
-      'Concrete Slab Installation',
-      'Mitered Ends',
-      'Fill-in Sunken Living Room',
-      'Parking Lot Repairs and Curbing',
-      'Bollards Installation',
-      'Concrete Repairs',
-      'Sidewalks and Walkway Construction',
-      'Retaining Wall Construction',
-      'Modern Decorative Floating ponds',
-      'Plumbing Trench Concrete Pour Back',
-      'Culvert Pipe Installation',
-    ],
     serviceAreas: [
       'Palm Bay, Florida',
       'Melbourne, FL',
@@ -53,7 +42,7 @@ const FooterSecond = () => {
             {title === 'HOURS' ? (
               <span className="secondfooter-links-text">{item}</span>
             ) : (
-              <a className="secondfooter-links" href="#">{item}</a>
+              item
             )}
           </li>
         ))}
@@ -72,9 +61,15 @@ const FooterSecond = () => {
         </ul>
         <h6 className="fw-bold mt-5 footer-links-heading">SERVICES</h6>
         <ul className="list-unstyled mt-3">
-          {links.services.map((item, i) => (
-            <li key={i} className="mt-3">
-              <a className="secondfooter-links" href="#">{item}</a>
+          {loading ? (
+            <li className="mt-3">Loading...</li>
+          ) : error ? (
+            <li className="mt-3 text-danger">Error loading services</li>
+          ) : services.map((service, i) => (
+            <li key={service._id} className="mt-3">
+              <Link className="secondfooter-links" to={`/services/${service.slug}`}>
+                {service.title}
+              </Link>
             </li>
           ))}
         </ul>
@@ -100,6 +95,17 @@ const FooterSecond = () => {
     </>
   );
 
+  // Convert dynamic services into JSX <Link> elements
+  const serviceLinks = loading ? [
+    <span key="loading">Loading...</span>
+  ] : error ? [
+    <span key="error" className="text-danger">Failed to load services</span>
+  ] : services.map(service => (
+    <Link key={service._id} to={`/services/${service.slug}`} className="secondfooter-links">
+      {service.title}
+    </Link>
+  ));
+
   return (
     <footer className="bg-black text-white">
       <div className="container-xxl second-footer-continer">
@@ -111,14 +117,14 @@ const FooterSecond = () => {
                   <img src={logo} alt="Green Hammer Concrete Logo" className="footer-card-img" />
                 </div>
                 <div className="col-7 footer-contact-card-content">
-                  <p className="mb-1" style={{ fontWeight: "900" }}>GREEN HAMMER CONCRETE</p>
+                  <p className="mb-1 fw-bold">GREEN HAMMER CONCRETE</p>
                   <p className="mb-1">Palm Bay, FL, US</p>
                   <p className="mb-2">greenhammerconcrete@gmail.com</p>
                 </div>
               </div>
               <div className="d-flex justify-content-between align-items-center mt-3 footer-contact-card-btns p-3">
                 <div className="w-50 me-2 footer-contact-card-btn1">CONTACT US</div>
-                <a href="#" class="book-button">BOOK NOW</a>
+                <a href="#" className="book-button">BOOK NOW</a>
               </div>
               <div className="d-flex">
                 {[googleLogo, facebookLogo, nextdoorLogo].map((src, i) => (
@@ -128,15 +134,22 @@ const FooterSecond = () => {
             </div>
           </div>
 
-          {renderList('COMPANY', links.company)}
-          {renderList('SERVICES', links.services)}
-          {renderList('SERVICE AREAS', links.serviceAreas)}
+          {renderList('COMPANY', links.company.map(text => (
+            <a key={text} className="secondfooter-links" href="#">{text}</a>
+          )))}
+
+          {renderList('SERVICES', serviceLinks)}
+
+          {renderList('SERVICE AREAS', links.serviceAreas.map(text => (
+            <a key={text} className="secondfooter-links" href="#">{text}</a>
+          )))}
+
           {renderList('HOURS', links.hours)}
 
           {renderMobileList()}
         </div>
 
-        <div className="footer-third-container d-flex flex-column justify-content-start align-items-start flex-md-row  justify-content-md-between">
+        <div className="footer-third-container d-flex flex-column justify-content-start align-items-start flex-md-row justify-content-md-between">
           <div className="d-flex flex-column">
             <span>Powered by</span>
             <img src={bottomLogo} alt="Topline Pro Logo" className="footer-logo" />
