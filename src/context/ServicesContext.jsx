@@ -1,6 +1,6 @@
 // context/ServicesContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { serviceAPI } from '../apis/apiService'; // Updated path to match your structure
+import axios from 'axios';
 
 const ServicesContext = createContext();
 
@@ -21,15 +21,21 @@ export const ServicesProvider = ({ children }) => {
         try {
             setLoading(true);
             setError(null);
-            const response = await serviceAPI.getAllServices();
 
-            if (response.success) {
-                setServices(response.data);
+            // Direct axios call instead of serviceAPI
+            const response = await axios.get('http://localhost:5000/api/services');
+
+            if (response.data) {
+                // Handle different response formats
+                const servicesData = Array.isArray(response.data) ? response.data : response.data.data || [];
+                setServices(servicesData);
             } else {
-                setError('Failed to load services');
+                setError('No services data found');
+                setServices([]);
             }
         } catch (err) {
             setError('Failed to load services');
+            setServices([]);
             console.error('Error fetching services:', err);
         } finally {
             setLoading(false);

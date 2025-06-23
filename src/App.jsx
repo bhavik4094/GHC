@@ -1,22 +1,21 @@
-import { Outlet } from 'react-router-dom'
-import Footer from './component/common-component/footer/Footer'
-import Header from './component/common-component/header/Header'
-import { ServicesProvider } from './context/ServicesContext'; // ✅ Make sure path is correct
+import { Outlet } from 'react-router-dom';
+import Footer from './component/common-component/footer/Footer';
+import Header from './component/common-component/header/Header';
+import { ServicesProvider } from './context/ServicesContext';
+import { FooterNavigationProvider } from './context/FooterNavigationContext'; // ✅ Added
 
 function App() {
-
-
   return (
-
     <>
       <ServicesProvider>
-        <Header />
-        <Outlet />
-        <Footer />
+        <FooterNavigationProvider> {/* ✅ Wrap inside this */}
+          <Header />
+          <Outlet />
+          <Footer />
+        </FooterNavigationProvider>
       </ServicesProvider>
     </>
-
-  )
+  );
 }
 
-export default App
+export default App;
