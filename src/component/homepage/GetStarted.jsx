@@ -1,89 +1,119 @@
-import React from 'react';
-import getStartedBG from '../../assets/img/getstarted-bg.webp';
-import GetStartedImg1 from '../../assets/img/getstarted-img2.webp';
-import GetStartedImg2 from '../../assets/img/getstarted-img3.webp';
-import GetStartedImg3 from '../../assets/img/getstarted-img4.webp';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import pageteartop from '../../assets/img/pagetear-2.webp';
 import pagetear from '../../assets/img/footer-pagetear-img.webp';
 
-// Optional: Button and Image item subcomponents
-const CTAButton = ({ text, className }) => (
-    <button className={`cta-content-btns ${className}`}>
-        {text}
-    </button>
-);
+// Replace with environment variable in production
+const apiBaseUrl = 'http://localhost:5000/';
 
 const ImageBox = ({ src, alt, className }) => (
     <span className={`border border-black ${className}`}>
-        <img src={src} alt={alt} className="w-100 h-100" />
+        <img src={src} alt={alt || 'image'} className="w-100 h-100" />
     </span>
 );
 
 function GetStarted() {
+    const [content, setContent] = useState(null);
 
+    useEffect(() => {
+        axios
+            .get(`${apiBaseUrl}api/getstarted`)
+            .then(res => setContent(res.data))
+            .catch(err => {
+                console.error('Failed to load GetStarted content:', err);
+                setContent(null);
+            });
+    }, []);
 
-    const sideImages = [
-        { src: GetStartedImg1, alt: 'Consultation image 1', className: 'image-1' },
-        { src: GetStartedImg2, alt: 'Consultation image 2', className: 'image-2' },
-        { src: GetStartedImg3, alt: 'Consultation image 3', className: 'image-3 mx-auto' },
-    ];
+    if (!content || typeof content !== 'object') return null;
+
+    // Normalize background image URL
+    const backgroundImage = content.backgroundImage
+        ? `${apiBaseUrl}${content.backgroundImage}`
+        : null;
+
+    // Normalize side images if present
+    const sideImages = Array.isArray(content.sideImages)
+        ? content.sideImages.map(img => ({
+            ...img,
+            src: img?.src ? `${apiBaseUrl}${img.src}` : '',
+        }))
+        : [];
 
     return (
-        <div>
-            <section className="get-started position-relative">
-                {/* Page tear */}
-                <div className="page-tear position-absolute start-0 w-100" style={{ marginTop: '-2px' }}>
-                    <img
-                        src={pageteartop}
-                        alt="Decorative page tear"
-                        className="w-100 d-block"
-                        style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
-                    />
-                </div>
+        <section className="get-started position-relative">
+            {/* Top page tear */}
+            <div className="page-tear position-absolute start-0 w-100" style={{ marginTop: '-2px' }}>
+                <img
+                    src={pageteartop}
+                    alt="Decorative page tear"
+                    className="w-100 d-block"
+                    style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
+                />
+            </div>
 
-                <img src={getStartedBG} alt="Background" className="h-100 w-100 object-fit-cover" />
+            {backgroundImage && (
+                <img src={backgroundImage} alt="Background" className="h-100 w-100 object-fit-cover" />
+            )}
 
-                <div className="position-absolute top-0 w-100 h-100 background-color d-flex align-items-center">
-                    <div className="container-xxl">
-                        <div className="row">
-                            {/* Text + CTA */}
-                            <div className="col-xl-7 d-flex flex-column justify-content-center px-3">
-                                <h2 className="get-started-text mb-3 text-light">Ready to get started?</h2>
+            <div className="position-absolute top-0 w-100 h-100 background-color d-flex align-items-center">
+                <div className="container-xxl">
+                    <div className="row">
+                        {/* Text + Buttons */}
+                        <div className="col-xl-7 d-flex flex-column justify-content-center px-3">
+                            {content.heading1 && (
+                                <h2 className="get-started-text mb-3 text-light">{content.heading1}</h2>
+                            )}
+
+                            {content.heading2 && (
                                 <h2 className="get-started-text text-light mb-4 getstarted-text2">
-                                    Book an appointment today.
+                                    {content.heading2}
                                 </h2>
-                                <div className="d-flex gap-3 mt-4 flex-column flex-sm-row">
-                                    <a href="#" class="quote-button">GET A FREE QUOTE</a>
-                                    <a href="#" class="call-button">CALL US</a>
-                                </div>
-                            </div>
+                            )}
 
-                            {/* Image column */}
+                            <div className="d-flex gap-3 mt-4 flex-column flex-sm-row">
+                                {content.quoteButton?.text && (
+                                    <a href={content.quoteButton.link || '#'} className="quote-button">
+                                        {content.quoteButton.text}
+                                    </a>
+                                )}
+                                {content.callButton?.text && (
+                                    <a href={content.callButton.link || '#'} className="call-button">
+                                        {content.callButton.text}
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Side Images */}
+                        {sideImages.length > 0 && (
                             <div className="col-xl-5 d-none d-xl-block position-relative hide-till-1025">
                                 <div className="d-flex flex-column get-started-right">
                                     <span className="d-flex flex-column flex-lg-row align-items-end">
-                                        {sideImages.slice(0, 2).map((img, i) => (
-                                            <ImageBox key={i} {...img} />
-                                        ))}
+                                        {sideImages.slice(0, 2).map((img, i) =>
+                                            img?.src ? (
+                                                <ImageBox key={i} {...img} />
+                                            ) : null
+                                        )}
                                     </span>
-                                    <ImageBox {...sideImages[2]} />
+                                    {sideImages[2]?.src && <ImageBox {...sideImages[2]} />}
                                 </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
+            </div>
 
-                {/* Page tear at the bottom */}
-                <div className="page-tear position-absolute bottom-0 start-0 w-100">
-                    <img
-                        src={pagetear}
-                        alt="Page tear"
-                        className="w-100 d-block"
-                        style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
-                    />
-                </div>
-            </section>
-        </div>
+            {/* Bottom page tear */}
+            <div className="page-tear position-absolute bottom-0 start-0 w-100">
+                <img
+                    src={pagetear}
+                    alt="Page tear"
+                    className="w-100 d-block"
+                    style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
+                />
+            </div>
+        </section>
     );
 }
 
